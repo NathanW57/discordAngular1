@@ -16,6 +16,8 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import { Error404Component } from './pages/error404/error404.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { TopBarComponent } from './panel/top-bar/top-bar.component';
+import { LeftBarComponent } from './panel/left-bar/left-bar.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     LoginComponent,
     HomeComponent,
     Error404Component,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    TopBarComponent,
+    LeftBarComponent
   ],
     imports: [
       BrowserModule,
