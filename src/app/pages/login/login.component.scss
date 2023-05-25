@@ -1,4 +1,5 @@
 
+//Div du formulaire
 .container{
   display: flex;
   flex-direction: column;
@@ -7,9 +8,10 @@
   height: 40%;
   width: 40%;
   justify-content: center;
-  align-content: center;
   border-radius: 15px;
 
+
+  //Style du H1 alert MNS
   h1{
     text-align: center;
     color: white;
@@ -18,25 +20,55 @@
     font-family: "Arial Black", sans-serif;
   }
 
+  //Couleur du bouton login
   #logIn{
     background-color: #FF9763;
-    width: 35%;
+    width: 50%;
   }
 
 }
 
 
+//Taille de tout le contenu
 .containerAll{
-  background-color: #000011;
+  background-color: #3E4160;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
+//Survoler le password
 .colorPassword:hover{
   color: #3e6fba;
 }
 
+
+//Couleur/placement du password
 .colorPassword{
   color : #0893d8;
+  padding-top: 10px;
+
+}
+
+
+
+mat-form-field{
+  width: 50%;
+
+  //Centrer le texte et lui donner une taille
+  mat-error{
+    display: none !important;
+    text-align: center;
+    font-weight: bold;
+    color: #ff0033;
+    font-family: "Times New Roman", sans-serif;
+    font-size: 14px;
+  }
+
+  mat-error:first-child{
+    display: block !important;
+  }
 }

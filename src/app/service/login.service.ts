@@ -23,11 +23,14 @@ export class LoginService {
       const data : string = jwt.split('.')[1];
       const json = window.atob(data);
       const userData = JSON.parse(json);
+
+
+
       const user : User = {
         email : userData.sub,
-        lastname : userData.nom,
-        firstname : userData.prenom,
-        role : { id : userData.id ,name : userData.role}
+        lastname : userData.lastname,
+        firstname : userData.firstname,
+        role : userData.role
       }
       this._userConnected.next(user);
     }

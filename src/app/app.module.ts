@@ -18,6 +18,12 @@ import { Error404Component } from './pages/error404/error404.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { TopBarComponent } from './panel/top-bar/top-bar.component';
 import { LeftBarComponent } from './panel/left-bar/left-bar.component';
+import { AdminPanelComponent } from './panel/admin-panel/admin-panel.component';
+import { GroupComponent } from './pages/group/group.component';
+import {MatTableModule} from "@angular/material/table";
+import { LogOutComponent } from './component/log-out/log-out.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import {MatMenuModule} from "@angular/material/menu";
 
 
 @NgModule({
@@ -28,22 +34,28 @@ import { LeftBarComponent } from './panel/left-bar/left-bar.component';
     Error404Component,
     ChangePasswordComponent,
     TopBarComponent,
-    LeftBarComponent
+    LeftBarComponent,
+    AdminPanelComponent,
+    GroupComponent,
+    LogOutComponent,
+    MenuComponent
   ],
-    imports: [
-      BrowserModule,
-      AppRoutingModule,
-      BrowserAnimationsModule,
-      HttpClientModule,
-      FormsModule,
-      ReactiveFormsModule,
-      MatCardModule,
-      MatIconModule,
-      MatButtonModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatSelectModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    MatMenuModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -2,14 +2,18 @@
 <div class="containerAll">
 <form class="container" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
   <h1>Alert MNS</h1>
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
     <input matInput type="text" formControlName="email" (keyup)="errorLogin=false">
+    <mat-error *ngIf="formulaire.controls['email'].hasError('required')" >Email must not be empty</mat-error>
+    <mat-error *ngIf="formulaire.controls['email'].hasError('email')" >Email is required</mat-error>
   </mat-form-field>
 
-  <mat-form-field appearance="fill">
+  <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
     <input matInput type="password" formControlName="password" (keyup)="errorLogin=false">
+    <mat-error *ngIf="formulaire.controls['password'].hasError('required')">Password is required</mat-error>
+    <mat-error *ngIf="formulaire.controls['password'].hasError('minlength')">Password must be at least 6 characters</mat-error>
   </mat-form-field>
 
   <mat-error *ngIf="errorLogin">Bad Email/ Password</mat-error>

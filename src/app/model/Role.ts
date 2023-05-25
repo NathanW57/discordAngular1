@@ -1,7 +1,7 @@
 export type Role =
 
   {
-    id?:number;
+    id:number;
 
-    name?: string;
+    name: string;
   }

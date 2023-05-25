@@ -1,8 +1,13 @@
-<app-top-bar>
-
-</app-top-bar>
-<app-left-bar>
-
-</app-left-bar>
-<router-outlet>
-</router-outlet>
+<div class="main">
+  <div class="leftBar">
+    <app-left-bar></app-left-bar>
+  </div>
+  <div class="content">
+    <div class="topBar">
+      <app-top-bar></app-top-bar>
+    </div>
+    <div class="router">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

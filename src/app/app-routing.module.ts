@@ -5,6 +5,8 @@ import {HomeComponent} from "./pages/home/home.component";
 import {UserGuard} from "./guards/user.guard";
 import {Error404Component} from "./pages/error404/error404.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import {GroupComponent} from "./pages/group/group.component";
+import {LogOutComponent} from "./component/log-out/log-out.component";
 
 const routes: Routes = [
   {
@@ -17,9 +19,18 @@ const routes: Routes = [
     canActivate : [UserGuard]
   },
   {
+    path:"group",
+    component:GroupComponent
+  },
+  {
     path: "forgotPassword",
     component : ChangePasswordComponent
   },
+  {
+    path: "logOut",
+    component : LogOutComponent
+  }
+  ,
   {
     path : "",redirectTo: "login",
     pathMatch : "full"
