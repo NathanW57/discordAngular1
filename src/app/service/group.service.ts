@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Group} from "../model/Group";
 import {environnement} from "../environnements/Environnement";
 import {BehaviorSubject} from "rxjs";
@@ -14,8 +14,16 @@ export class GroupService {
 
 
   public getAllGroups() {
-    return this.http.get<Group[]>(environnement.serveurUrl + 'groups').subscribe((groups: Group[]) => {
-      this._group.next(groups);
-    });
+    const jwt = localStorage.getItem('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+
+    return this.http.get<Group[]>(environnement.serveurUrl + 'groups', { headers }).subscribe(
+      (groups: Group[]) => {
+        this._group.next(groups);
+      },
+      (error) => {
+        console.log('Error:', error);
+      }
+    );
   }
 }

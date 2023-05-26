@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {User} from "../../model/User";
 import {LoginService} from "../../service/login.service";
 import {BehaviorSubject} from "rxjs";
@@ -8,10 +8,27 @@ import {BehaviorSubject} from "rxjs";
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent {
+export class MenuComponent implements OnInit{
 
 
-  constructor() {
+
+  user: User | null | undefined;
+
+  constructor(private loginService: LoginService) {}
+
+  ngOnInit(): void {
+    this.loginService._userConnected.subscribe((user) => {
+      this.user = user;
+    });
+  }
+
+  isLoggedIn(): boolean {
+    return this.loginService.isUserLoggedIn();
+  }
+
+  getUserFullName(): string {
+    const user = this.loginService.getUser();
+    return user ? `${user.firstname} ${user.lastname}` : '';
   }
 
 }

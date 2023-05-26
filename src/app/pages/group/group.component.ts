@@ -19,9 +19,9 @@ export class GroupComponent {
   }
 
   ngOnInit(): void {
+    this.serviceGroup.getAllGroups();
     this.serviceGroup._group.subscribe((listeGroup) => {
       this.dataSource.data = listeGroup;
     });
-    this.serviceGroup.getAllGroups();
   }
 }

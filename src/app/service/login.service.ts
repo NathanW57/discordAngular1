@@ -19,25 +19,28 @@ export class LoginService {
   updateUserConnected() {
     const jwt = localStorage.getItem('jwt');
 
-    if(jwt != null ){
-      const data : string = jwt.split('.')[1];
+    if (jwt != null) {
+      const data: string = jwt.split('.')[1];
       const json = window.atob(data);
       const userData = JSON.parse(json);
 
+      const roleNames = userData.role.map((role: any) => role.name).join(',');
 
+      const user: User = {
+        email: userData.sub,
+        lastname: userData.lastname,
+        firstname: userData.firstname,
+        role: roleNames.split(',')
+      };
+      console.log(user)
 
-      const user : User = {
-        email : userData.sub,
-        lastname : userData.lastname,
-        firstname : userData.firstname,
-        role : userData.role
-      }
       this._userConnected.next(user);
-    }
-    else{
+    } else {
       this._userConnected.next(null);
     }
   }
+
+
 
   connexion(user : User) : Observable<string> {
 
@@ -56,4 +59,13 @@ export class LoginService {
 
     this.router.navigateByUrl("/login");
   }
+
+  isUserLoggedIn(): boolean {
+    return this._userConnected.value !== null;
+  }
+
+  getUser(): User | null {
+    return this._userConnected.value;
+  }
+
 }

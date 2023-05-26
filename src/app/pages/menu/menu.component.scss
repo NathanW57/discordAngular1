@@ -2,3 +2,19 @@ span{
   display: flex;
   justify-content: center;
 }
+.icon-button {
+  background-color: #FF9763;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.icon {
+  color: #818296;
+  font-size: 24px;
+}
+

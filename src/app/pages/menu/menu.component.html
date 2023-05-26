@@ -1,5 +1,7 @@
-<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<button mat-icon-button *ngIf="isLoggedIn()" [matMenuTriggerFor]="menu" class="icon-button">
+  <mat-icon class="icon">person</mat-icon>
+</button>
 <mat-menu #menu="matMenu">
-  <span>Nathan W</span>
+  <span>{{ getUserFullName() }}</span>
   <app-log-out></app-log-out>
 </mat-menu>
