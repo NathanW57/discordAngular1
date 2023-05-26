@@ -22,8 +22,10 @@ import { AdminPanelComponent } from './panel/admin-panel/admin-panel.component';
 import { GroupComponent } from './pages/group/group.component';
 import {MatTableModule} from "@angular/material/table";
 import { LogOutComponent } from './component/log-out/log-out.component';
-import { MenuComponent } from './pages/menu/menu.component';
+import { MenuComponent } from './panel/menu/menu.component';
 import {MatMenuModule} from "@angular/material/menu";
+import { GroupFinestComponent } from './pages/group-finest/group-finest.component';
+import { AcessAdminComponent } from './panel/acess-admin/acess-admin.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import {MatMenuModule} from "@angular/material/menu";
     AdminPanelComponent,
     GroupComponent,
     LogOutComponent,
-    MenuComponent
+    MenuComponent,
+    GroupFinestComponent,
+    AcessAdminComponent
   ],
   imports: [
     BrowserModule,

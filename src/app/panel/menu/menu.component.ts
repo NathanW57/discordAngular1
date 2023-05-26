@@ -31,4 +31,10 @@ export class MenuComponent implements OnInit{
     return user ? `${user.firstname} ${user.lastname}` : '';
   }
 
+  getUserFirstLetterOfFullName():string{
+      const user = this.loginService.getUser();
+      return user ? `${user.firstname.substring(0,1)}.${user.lastname.substring(0,1)}` : '';
+    }
+
+
 }

@@ -32,7 +32,6 @@ export class LoginService {
         firstname: userData.firstname,
         role: roleNames.split(',')
       };
-      console.log(user)
 
       this._userConnected.next(user);
     } else {

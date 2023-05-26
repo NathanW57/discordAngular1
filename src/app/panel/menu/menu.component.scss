@@ -1,0 +1,30 @@
+
+//Centrer le span , poid de la police et la famille
+span{
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-family: "Arial Black", serif;
+}
+
+
+//Centrage du texte à l'intérieur du cercle , couleur du cercle et dimension
+.icon-button {
+  background-color: #FF9763;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+//Taille du texte
+.texte {
+  font-family: Roboto;
+  color: #818296;
+  font-weight: bolder;
+  font-size: 16px;
+}
+
