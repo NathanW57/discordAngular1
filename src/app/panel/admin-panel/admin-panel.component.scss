@@ -1,5 +1,64 @@
-.contentPanel{
+/* Container , la dimension qu'il va prendre*/
+.container {
+  display: flex;
   height: 100%;
-  width: 15%;
-  background-color: #818296;
+}
+
+/* Content Panel , largeur du contentPanel , Couleur du background et centrer le contenu */
+.contentPanel {
+  flex: 0 0 15%;
+  background-color: var(--gris);
+  padding: 10px;
+  text-align: center;
+}
+
+/* Button , couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
+.button {
+  background-color: var(--bleufonce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid #818296;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  /* Anchor , placement , et désactivation des text décoration */
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    /* Visited state , couleur du texte lorsque le lien a déjà été visité*/
+    &:visited {
+      color: var(--blanc);
+    }
+
+    /* Hover state couleur du texte lors d'un survol du lien */
+    &:hover {
+      color: var(--orangeclair);
+    }
+  }
+
+  /* Icon , taille , marge et animation */
+  .icon {
+    font-size: 24px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+  }
+
+  /* Item Name , taille et animation */
+  .itemName {
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+}
+
+/* Content Area , l'espace qu'il va occuper ,couleur du background et l'espacement intérieur */
+.contentArea {
+  flex: 1;
+  background-color: #FFFFFF;
+  padding: 10px;
 }

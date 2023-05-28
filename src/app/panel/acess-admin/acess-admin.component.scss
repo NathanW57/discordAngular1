@@ -1,8 +1,18 @@
-mat-icon{
-  width: 50px;
-  height: 50px;
-  font-size: 50px;
+.icon-button {
+  /* Ajustez la position du bouton, la taille de la police et le remplissage */
+  position: relative;
+  font-size: 60px;
+  padding: 25px;
 }
-.settings{
+
+mat-icon {
+  /* Ajustez la position de l'icône, la taille de la police et la couleur */
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  height: 50px;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
   color: var(--orangeclair);
 }

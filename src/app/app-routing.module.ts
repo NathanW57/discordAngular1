@@ -9,40 +9,43 @@ import {GroupComponent} from "./pages/group/group.component";
 import {LogOutComponent} from "./component/log-out/log-out.component";
 import {GroupFinestComponent} from "./pages/group-finest/group-finest.component";
 import {AcessAdminComponent} from "./panel/acess-admin/acess-admin.component";
+import {AuthentificationGuard} from "./guards/authentification.guard";
+import {AdminPanelComponent} from "./panel/admin-panel/admin-panel.component";
 
 const routes: Routes = [
+
   {
     path:"login",
-    component : LoginComponent
+    component : LoginComponent,
+    canActivate: [AuthentificationGuard]
   },
   {
     path:"home",
     component : HomeComponent,
-    canActivate : [UserGuard]
+    canActivate : [UserGuard,AuthentificationGuard]
   },
+
   {
-    path:"group",
-    component:GroupComponent,
-    canActivate : [UserGuard]
-  },
+    path :"adminPanel",
+    component : AdminPanelComponent,
+    canActivate:[UserGuard],
+    children : [
+      {
+        path: 'group',
+        component : GroupComponent
+      }
+    ]
+  }
+  ,
   {
     path:"groupFinest",
     component:GroupFinestComponent,
     canActivate : [UserGuard]
   },
   {
-    path:"accessAdmin",
-    component:AcessAdminComponent,
-  },
-  {
     path: "forgotPassword",
     component : ChangePasswordComponent
   },
-  {
-    path: "logOut",
-    component : LogOutComponent
-  }
-  ,
   {
     path : "",redirectTo: "login",
     pathMatch : "full"
