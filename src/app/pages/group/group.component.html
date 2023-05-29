@@ -1,15 +1,9 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> ID </th>
-    <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
-  </ng-container>
-
-
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button [routerLink]="onButtonClick(element.id)">{{ element.name }}</button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

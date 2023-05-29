@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router";
-import {User} from "../model/User";
-import {BehaviorSubject, Observable} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import {NavigationEnd, Router} from '@angular/router';
+import { User } from '../model/User';
+import {BehaviorSubject, filter, map, Observable} from 'rxjs';
+import { Role } from '../model/Role';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  public _userConnected : BehaviorSubject<User | null> =
+  public _userConnected: BehaviorSubject<User | null> =
     new BehaviorSubject<User | null>(null);
-  constructor(private http:HttpClient , private router :Router) {
-      this.updateUserConnected();
-  }
 
+  constructor(private http: HttpClient, private router: Router) {
+    this.updateUserConnected();
+
+  }
 
   updateUserConnected() {
     const jwt = localStorage.getItem('jwt');
@@ -24,13 +26,13 @@ export class LoginService {
       const json = window.atob(data);
       const userData = JSON.parse(json);
 
-      const roleNames = userData.role.map((role: any) => role.name).join(',');
+      const roles: Role[] = userData.role;
 
       const user: User = {
         email: userData.sub,
         lastname: userData.lastname,
         firstname: userData.firstname,
-        role: roleNames.split(',')
+        role: roles
       };
 
       this._userConnected.next(user);
@@ -39,24 +41,14 @@ export class LoginService {
     }
   }
 
-
-
-  connexion(user : User) : Observable<string> {
-
-    return this.http
-      .post("http://localhost:8081/connexion",
-        user,
-        {responseType: "text"}
-      )
+  connexion(user: User): Observable<string> {
+    return this.http.post('http://localhost:8081/connexion', user, { responseType: 'text' });
   }
 
-
-  disconnect(){
-    localStorage.removeItem("jwt");
-
+  disconnect() {
+    localStorage.removeItem('jwt');
     this._userConnected.next(null);
-
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl('/login');
   }
 
   isUserLoggedIn(): boolean {
@@ -67,4 +59,8 @@ export class LoginService {
     return this._userConnected.value;
   }
 
+  isUserAdmin(): boolean {
+    const user = this._userConnected.value;
+    return user !== null && user.role.some(role => role.name === 'ROLE_ADMIN');
+  }
 }

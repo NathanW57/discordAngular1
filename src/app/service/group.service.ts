@@ -22,10 +22,8 @@ export class GroupService {
         this._group.next(groups);
       },
       (error) => {
-        console.log('Error:', error);
       }
     );
   }
-
 
 }

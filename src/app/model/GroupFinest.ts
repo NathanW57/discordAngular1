@@ -1,4 +1,5 @@
-import {User} from "./User";
+
+import {UserGroupFinest} from "./UserGroupFinest";
 
 export type GroupFinest =
 
@@ -7,11 +8,5 @@ export type GroupFinest =
 
     name: string;
 
-    user : User[];
-
-    // email : string;
-    //
-    // firstname :string;
-    //
-    // lastname: string;
+    members : UserGroupFinest[];
   }

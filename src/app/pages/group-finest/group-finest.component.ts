@@ -1,25 +1,39 @@
-import { Component } from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {GroupFinest} from "../../model/GroupFinest";
-import {GroupFinestService} from "../../service/group-finest.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { GroupFinest } from "../../model/GroupFinest";
+import { GroupFinestService } from "../../service/group-finest.service";
 
 @Component({
   selector: 'app-group-finest',
   templateUrl: './group-finest.component.html',
   styleUrls: ['./group-finest.component.scss']
 })
-export class GroupFinestComponent {
-  dataSource: MatTableDataSource<GroupFinest>;
-  displayedColumns: string[] = ['id','email','firstname','lastname'];
+export class GroupFinestComponent implements OnInit {
+  groupFinest: GroupFinest | undefined;
 
-  constructor(private groupFinestService: GroupFinestService) {
-    this.dataSource = new MatTableDataSource<GroupFinest>([]);
-  }
+  constructor(
+    private groupFinestService: GroupFinestService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.groupFinestService.getAllGroupsFinest();
-    this.groupFinestService._group.subscribe((listeGroup) => {
-      this.dataSource.data = listeGroup;
+    this.route.paramMap.subscribe(params => {
+      const groupId = params.get('id'); // Assurez-vous que 'id' correspond au nom défini dans votre route
+      if (groupId) {
+        this.getGroupById(Number(groupId));
+      }
     });
+  }
+
+  getGroupById(groupId: number): void {
+    this.groupFinestService.getGroupById(groupId).subscribe(
+      (group: GroupFinest) => {
+        this.groupFinest = group;
+        console.log(group);
+      },
+      (error) => {
+        console.log('Error occurred while fetching group:', error);
+      }
+    );
   }
 }

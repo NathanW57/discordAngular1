@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {LoginService} from "../../service/login.service";
 
 @Component({
   selector: 'app-left-bar',
@@ -8,7 +9,7 @@ import {Router} from "@angular/router";
 })
 export class LeftBarComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,public login : LoginService) {}
 
   redirectToAdminPanel() {
     this.router.navigateByUrl('/adminPanel');

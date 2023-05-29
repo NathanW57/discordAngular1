@@ -1,0 +1,40 @@
+
+h2, h3 {
+  color: var(--bleufonce);
+  font-family: "Arial Black", sans-serif;
+}
+
+p {
+  color: var(--noir);
+  font-size: 18px;
+}
+
+div {
+  background-color: var(--grisclair);
+  padding: 20px;
+  border: 1px solid var(--noir);
+}
+
+th {
+  font-weight: bold;
+  font-family: "Arial Black", sans-serif;
+  font-size: 18px;
+  border: 1px solid var(--noir);
+  background-color: var(--bleufonce);
+  color: var(--blanc);
+}
+
+td {
+  font-weight: normal;
+  font-size: 18px;
+  border: 1px solid var(--noir);
+  background-color: var(--grisclair);
+  color: var(--noir);
+}
+
+table {
+  background-color: var(--grismoyen);
+  width: 100%;  // Pour s'assurer que le tableau prend toute la largeur disponible
+  border-collapse: collapse;  // Pour s'assurer que les bordures des cellules ne se chevauchent pas
+  margin-top: 20px;
+}

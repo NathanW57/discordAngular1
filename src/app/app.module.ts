@@ -42,7 +42,7 @@ import { AcessAdminComponent } from './panel/acess-admin/acess-admin.component';
     LogOutComponent,
     MenuComponent,
     GroupFinestComponent,
-    AcessAdminComponent
+    AcessAdminComponent,
   ],
   imports: [
     BrowserModule,
