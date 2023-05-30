@@ -1,0 +1,45 @@
+th {
+  font-weight: bold;
+  font-family: "Arial Black", sans-serif;
+  font-size: 18px;
+  border: 1px solid var(--noir);
+  background-color: var(--bleufonce);
+  color: var(--blanc);
+  text-align: center;
+}
+
+td {
+  font-weight: normal;
+  font-size: 18px;
+  border: 1px solid var(--noir);
+  background-color: var(--orangeclair);
+  color: var(--noir);
+
+  button :hover{
+    color: #000011;
+  }
+}
+
+table {
+  background-color: var(--bleufonce);
+}
+
+.contentArea {
+  flex: 1;
+  background-color: #FFFFFF;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bleufonce);
+}
+.tableArea{
+  flex: 0 0 15%
+}
+
+mat-button{
+  color: var(--orangeclair);
+}
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GroupFinest } from "../../model/GroupFinest";
-import { GroupFinestService } from "../../service/group-finest.service";
+import { GroupFinest } from "../../../../model/GroupFinest";
+import { GroupFinestService } from "../../../../service/group-finest.service";
 
 @Component({
   selector: 'app-group-finest',
@@ -18,7 +18,7 @@ export class GroupFinestComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      const groupId = params.get('id'); // Assurez-vous que 'id' correspond au nom défini dans votre route
+      const groupId = params.get('id');
       if (groupId) {
         this.getGroupById(Number(groupId));
       }
@@ -29,7 +29,6 @@ export class GroupFinestComponent implements OnInit {
     this.groupFinestService.getGroupById(groupId).subscribe(
       (group: GroupFinest) => {
         this.groupFinest = group;
-        console.log(group);
       },
       (error) => {
         console.log('Error occurred while fetching group:', error);

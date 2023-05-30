@@ -5,13 +5,14 @@ import {HomeComponent} from "./pages/home/home.component";
 import {UserGuard} from "./guards/user.guard";
 import {Error404Component} from "./pages/error404/error404.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
-import {GroupComponent} from "./pages/group/group.component";
+import {GroupComponent} from "./pages/Admin/AdminGroup/group/group.component";
 import {LogOutComponent} from "./component/log-out/log-out.component";
-import {GroupFinestComponent} from "./pages/group-finest/group-finest.component";
+import {GroupFinestComponent} from "./pages/Admin/AdminGroup/group-finest/group-finest.component";
 import {AcessAdminComponent} from "./panel/acess-admin/acess-admin.component";
 import {AuthentificationGuard} from "./guards/authentification.guard";
 import {AdminPanelComponent} from "./panel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
+import {UpdateUserComponent} from "./pages/Admin/AdminGroup/update-user/update-user.component";
 
 const routes: Routes = [
 
@@ -37,13 +38,21 @@ const routes: Routes = [
         children : [
           {
             path: ':id',
-            component : GroupFinestComponent
+            component : GroupFinestComponent,
+          },
+          {
+            path : 'userUpdate',
+            component : UpdateUserComponent
           }
         ]
       }
     ]
   }
   ,
+  {
+    path : 'userpdate',
+    component : UpdateUserComponent
+  },
   {
     path: "forgotPassword",
     component : ChangePasswordComponent

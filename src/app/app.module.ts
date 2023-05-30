@@ -19,13 +19,17 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { TopBarComponent } from './panel/top-bar/top-bar.component';
 import { LeftBarComponent } from './panel/left-bar/left-bar.component';
 import { AdminPanelComponent } from './panel/admin-panel/admin-panel.component';
-import { GroupComponent } from './pages/group/group.component';
+import { GroupComponent } from './pages/Admin/AdminGroup/group/group.component';
 import {MatTableModule} from "@angular/material/table";
 import { LogOutComponent } from './component/log-out/log-out.component';
 import { MenuComponent } from './panel/menu/menu.component';
 import {MatMenuModule} from "@angular/material/menu";
-import { GroupFinestComponent } from './pages/group-finest/group-finest.component';
+import { GroupFinestComponent } from './pages/Admin/AdminGroup/group-finest/group-finest.component';
 import { AcessAdminComponent } from './panel/acess-admin/acess-admin.component';
+import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/menu-group-admin/menu-group-admin.component';
+import { UpdateUserComponent } from './pages/Admin/AdminGroup/update-user/update-user.component';
+import {MatListModule} from "@angular/material/list";
+import { UpdateUserPipe } from './pipe/update-user.pipe';
 
 
 @NgModule({
@@ -43,23 +47,27 @@ import { AcessAdminComponent } from './panel/acess-admin/acess-admin.component';
     MenuComponent,
     GroupFinestComponent,
     AcessAdminComponent,
+    MenuGroupAdminComponent,
+    UpdateUserComponent,
+    UpdateUserPipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatTableModule,
-    MatMenuModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatIconModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatTableModule,
+        MatMenuModule,
+        MatListModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

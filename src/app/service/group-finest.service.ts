@@ -14,6 +14,6 @@ export class GroupFinestService {
   getGroupById(groupId: number): Observable<GroupFinest> {
     const jwt = localStorage.getItem('jwt');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.get<GroupFinest>(`${environnement.serveurUrl}groups/${groupId}`, { headers });
+    return this.http.get<GroupFinest>(`${environnement.serveurUrl}group/${groupId}`, { headers });
   }
 }
