@@ -30,6 +30,7 @@ import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/menu-group-adm
 import { UpdateUserComponent } from './pages/Admin/AdminGroup/update-user/update-user.component';
 import {MatListModule} from "@angular/material/list";
 import { UpdateUserPipe } from './pipe/update-user.pipe';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { UpdateUserPipe } from './pipe/update-user.pipe';
         MatTableModule,
         MatMenuModule,
         MatListModule,
+        MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

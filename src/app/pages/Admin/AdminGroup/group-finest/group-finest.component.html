@@ -4,25 +4,24 @@
   <p>Name: {{ groupFinest.name }}</p>
   <h3>Members:</h3>
   <div class="scroll">
-  <table>
-    <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-      <th>Action</th>
-    </tr>
-    </thead>
+    <table>
+      <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+      </thead>
 
-    <tbody>
-    <tr *ngFor="let member of groupFinest.members">
-      <td>{{ member.firstname }}</td>
-      <td>{{ member.lastname }}</td>
-      <td>{{ member.email }}</td>
-      <td><app-menu-group-admin></app-menu-group-admin></td>
-
-    </tr>
-    </tbody>
-  </table>
+      <tbody>
+      <tr *ngFor="let member of groupFinest.members">
+        <td>{{ member.firstname }}</td>
+        <td>{{ member.lastname }}</td>
+        <td>{{ member.email }}</td>
+        <td><app-menu-group-admin [userId]="member.id"></app-menu-group-admin></td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>

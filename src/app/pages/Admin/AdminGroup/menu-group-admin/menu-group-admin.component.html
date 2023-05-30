@@ -3,6 +3,8 @@
 </button>
 
 <mat-menu #menu="matMenu">
-  <button mat-button class="delete"><mat-icon fontIcon="delete"></mat-icon></button>
-  <button mat-button class="update"> <mat-icon fontIcon="update"></mat-icon></button>
+  <button mat-button class="delete">
+    <mat-icon fontIcon="delete"></mat-icon>
+  </button>
+  <button mat-button class="update" (click)="openUserUpdateDialog()"> <mat-icon fontIcon="update"></mat-icon></button>
 </mat-menu>

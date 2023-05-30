@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import {Router} from "@angular/router";
+import { Component, Input } from '@angular/core';
+import { MatDialog } from "@angular/material/dialog";
+import { User } from "../../../../model/User";
+import { UserService } from "../../../../service/user.service";
+import { UpdateUserComponent } from "../update-user/update-user.component";
 
 @Component({
   selector: 'app-menu-group-admin',
@@ -7,7 +10,28 @@ import {Router} from "@angular/router";
   styleUrls: ['./menu-group-admin.component.scss']
 })
 export class MenuGroupAdminComponent {
+  @Input() userId: number | undefined;
 
-  constructor(private router: Router) {
+  constructor(
+    private dialog: MatDialog,
+    private userService: UserService
+  ) {}
+
+  openUserUpdateDialog(): void {
+    this.userService.getUserById(this.userId).subscribe(
+      (user: User) => {
+        const dialogRef = this.dialog.open(UpdateUserComponent, {
+          width: '800px',
+          data: user
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('Dialog result:', result);
+        });
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
   }
 }

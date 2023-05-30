@@ -39,20 +39,19 @@ const routes: Routes = [
           {
             path: ':id',
             component : GroupFinestComponent,
-          },
-          {
-            path : 'userUpdate',
-            component : UpdateUserComponent
+            children : [
+              {
+                path : 'userUpdate',
+                component : UpdateUserComponent
+              }
+            ]
           }
         ]
+
       }
     ]
   }
   ,
-  {
-    path : 'userpdate',
-    component : UpdateUserComponent
-  },
   {
     path: "forgotPassword",
     component : ChangePasswordComponent

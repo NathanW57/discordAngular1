@@ -1,28 +1,40 @@
-import { Component } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Role} from "../../../../model/Role";
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { Role } from "../../../../model/Role";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.scss']
 })
-export class UpdateUserComponent {
+export class UpdateUserComponent implements OnInit {
+  formulaire: FormGroup;
+  errorComplete: boolean = false;
+  formRole = new FormControl([] as Role[]);
 
-  constructor(private formBuilder : FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<UpdateUserComponent>,
+    @Inject(MAT_DIALOG_DATA) public user: User // Injectez les données de l'utilisateur dans la boîte de dialogue
+  ) {
+    this.formulaire = this.formBuilder.group({
+      id: [this.user.id],
+      lastname: [user.lastname, [Validators.required, Validators.minLength(6)]],
+      firstname: [user.firstname, [Validators.required, Validators.minLength(6)]],
+      email: [user.email, [Validators.required, Validators.email]],
+      role : [user.role],
+      formRole: this.formRole,
+    });
   }
 
-  errorComplete : boolean = false;
-  formulaire : FormGroup = this.formBuilder.group({
-    lastname : ["",[Validators.required,Validators.minLength(6)]],
-    firstname : ["",[Validators.required,Validators.minLength(6)]],
-    email : ["",[Validators.required,Validators.email]]
-  });
+  ngOnInit() {
+    // Initialize formRole with the roles from the user
+    this.formRole.setValue(this.user.role);
+  }
 
-
-  formRole = new FormControl('');
-  roles: Role[] = [
-    {name: 'ROLE_ADMIN', id: 1},
-    {name: 'ROLE_USER', id: 2},
-  ];
+  cancel(): void {
+    this.dialogRef.close();
+  }
 }

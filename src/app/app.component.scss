@@ -1,12 +1,14 @@
+
 .main {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
 }
 
 .leftBar {
-  width: 5%;
+  width: 5vw;
+  max-width: 40vw;
   background-color: #000011;
 }
 
@@ -18,10 +20,26 @@
 
 .topBar {
   display: flex;
-  height: 7%;
+  height: 7vh;
   background-color: #151B36;
 }
 
 .router {
   flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  /* Taille minimale lorsque l'écran est réduit */
+  .leftBar {
+    width: 15vw;
+    max-width: 40vw;
+  }
+
+  .content {
+    flex-direction: row;
+  }
+
+  .topBar {
+    height: 10vh;
+  }
 }
