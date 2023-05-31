@@ -30,14 +30,18 @@
     <mat-label>Role</mat-label>
     <mat-select formControlName="formRole" multiple>
       <mat-select-trigger>
-        {{ user.role[0].name || '' }}
+        {{ getSelectedRoleNames() | updateUser}}
         <span *ngIf="(formRole.value?.length || 0) > 1" class="example-additional-selection">
-          (+{{ (formRole.value?.length || 0) - 1 }} {{ formRole.value?.length === 2 ? 'other' : 'others' }})
-        </span>
+        (+{{ (formRole.value?.length || 0) - 1 }} {{ formRole.value?.length === 2 ? 'other' : 'others' }})
+      </span>
       </mat-select-trigger>
-      <mat-option *ngFor="let role of user.role" [value]="role">{{ role.name }}</mat-option>
+      <mat-option *ngFor="let role of user.role" [value]="role">
+        {{ role.name | updateUser }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
+
+
 
   <div class="placementButton">
     <button id="cancelButton" mat-raised-button color="warn" (click)="cancel()">Cancel</button>

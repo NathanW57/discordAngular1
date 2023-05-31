@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class UpdateUserPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string): string {
+    if (value) {
+      if (value.startsWith('ROLE_')) {
+        return value.substring(5);
+      }
+    }
+    return value;
   }
 
 }

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms"
 import { Role } from "../../../../model/Role";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { User } from 'src/app/model/User';
+import {UpdateUserPipe} from "../../../../pipe/update-user.pipe";
 
 @Component({
   selector: 'app-update-user',
@@ -29,6 +30,19 @@ export class UpdateUserComponent implements OnInit {
     });
   }
 
+  getSelectedRoleNames(): string {
+    const selectedRoles = this.formulaire.get('formRole')!.value;
+    if (selectedRoles && selectedRoles.length > 0) {
+      return selectedRoles.map((role: Role) => role.name).join(', ');
+    }
+    return '';
+  }
+
+
+
+
+
+
   ngOnInit() {
     // Initialize formRole with the roles from the user
     this.formRole.setValue(this.user.role);
@@ -37,4 +51,6 @@ export class UpdateUserComponent implements OnInit {
   cancel(): void {
     this.dialogRef.close();
   }
+
+  protected readonly UpdateUserPipe = UpdateUserPipe;
 }
