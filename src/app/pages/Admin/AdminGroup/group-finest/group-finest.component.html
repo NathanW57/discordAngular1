@@ -1,40 +1,61 @@
-<div class="container" *ngIf="groupFinest">
-  <h2>Group Details</h2>
-  <p>ID: {{ groupFinest.id }}</p>
-  <p>Name: {{ groupFinest.name }}</p>
-  <h3>Members:</h3>
-
-  <button class="addUser" mat-button ><mat-icon fontIcon="person_add"></mat-icon>Add user</button>
-
-
-  <div class="scroll">
-    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
-    <table>
-      <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Action</th>
-      </tr>
-      </thead>
-
-      <tbody>
-      <tr *ngFor="let member of groupFinest.members">
-        <td>{{ member.firstname }}</td>
-        <td>{{ member.lastname }}</td>
-        <td>{{ member.email }}</td>
-        <td><app-menu-group-admin [userId]="member.id"></app-menu-group-admin></td>
-      </tr>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="loading" *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate" class="custom-spinner"></mat-progress-spinner>
   </div>
-  <mat-paginator [length]="groupFinest.members.length"
-                 (page)="onChangePage($event)"
-                 [pageSize]="pageSize"
-                 [pageSizeOptions]="pageSizesOption"
-                 [pageIndex]="pageIndex"
-                 showFirstLastButtons="showFirstLastButtons"
-                 aria-label="Select page">
-  </mat-paginator>
+
+  <div *ngIf="groupFinest">
+    <h2>Group Details</h2>
+    <p>ID: {{ groupFinest.id }}</p>
+    <p>Name: {{ groupFinest.name }}</p>
+    <h3>Members:</h3>
+
+
+    <div class="table-header">
+      <div class="add-user">
+        <button mat-button><mat-icon fontIcon="person_add"></mat-icon>Add user</button>
+      </div>
+
+      <div class="filter-field">
+        <mat-form-field appearance="fill">
+          <mat-label>Filter</mat-label>
+          <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="scroll">
+      <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="firstname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> First Name </mat-header-cell>
+          <mat-cell *matCellDef="let member"> {{member.firstname}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Last Name </mat-header-cell>
+          <mat-cell *matCellDef="let member"> {{member.lastname}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </mat-header-cell>
+          <mat-cell *matCellDef="let member"> {{member.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+          <mat-cell *matCellDef="let member"> <app-menu-group-admin [userId]="member.id"></app-menu-group-admin> </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+    </div>
+
+    <mat-paginator [length]="groupFinest.members.length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizesOption"
+                   [pageIndex]="pageIndex"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </div>
 </div>

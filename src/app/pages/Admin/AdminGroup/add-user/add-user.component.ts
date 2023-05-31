@@ -1,11 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {Group} from "../../../../model/Group";
 import {User} from "../../../../model/User";
 import {UserService} from "../../../../service/user.service";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
-import {SelectionModel} from "@angular/cdk/collections";
 
 
 
@@ -30,6 +28,8 @@ export class AddUserComponent implements OnInit{
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+
+
   dataSource: MatTableDataSource<User>;
 
   displayedColumns: string[] = ['id','firstname','lastname','email'];
@@ -44,7 +44,6 @@ export class AddUserComponent implements OnInit{
     this.userService._user.subscribe((listeUser) => {
       this.dataSource.data = listeUser;
       this.dataSource.paginator = this.paginator;
-      console.log(listeUser)
     });
   }
 

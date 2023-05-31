@@ -3,8 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { GroupFinest } from "../../../../model/GroupFinest";
 import { GroupFinestService } from "../../../../service/group-finest.service";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {MatTableDataSource, MatTableDataSourcePaginator} from "@angular/material/table";
+import {MatTableDataSource} from "@angular/material/table";
 import {UserGroupFinest} from "../../../../model/UserGroupFinest";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-group-finest',
@@ -14,6 +15,18 @@ import {UserGroupFinest} from "../../../../model/UserGroupFinest";
 export class GroupFinestComponent implements OnInit {
   groupFinest: GroupFinest | undefined;
   isLoading = false;
+  dataSource = new MatTableDataSource<UserGroupFinest>([]);
+  displayedColumns: string[] = ['firstname', 'lastname', 'email', 'action'];
+
+  @ViewChild(MatPaginator) set matPaginator(paginator: MatPaginator) {
+    this.dataSource.paginator = paginator;
+  }
+
+  @ViewChild(MatSort) set matSort(sort : MatSort){
+    this.dataSource.sort = sort;
+  }
+
+  filterValue!: string;
 
   constructor(
     private groupFinestService: GroupFinestService,
@@ -24,34 +37,57 @@ export class GroupFinestComponent implements OnInit {
   pageSize = 10;
   pageIndex = 0;
 
-  pageEvent : PageEvent | undefined;
-  onChangePage(e:PageEvent) {
-    this.pageEvent = e;
-    this.pageIndex = e.pageIndex;
-    this.pageSize = e.pageSize;
-  }
-
-
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       const groupId = params.get('id');
       if (groupId) {
+        this.isLoading = true; // start loading
         this.getGroupById(Number(groupId));
       }
     });
   }
 
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  }
+
   getGroupById(groupId: number): void {
+    this.isLoading = true;
     this.groupFinestService.getGroupById(groupId).subscribe(
       (group: GroupFinest) => {
         this.groupFinest = group;
+        this.dataSource.data = group.members;
+        this.isLoading = false; // data loaded
       },
       (error) => {
         console.log('Error occurred while fetching group:', error);
+        this.isLoading = false; // data loaded
       }
     );
   }
 
+/*  getGroupById(groupId: number): void {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.groupFinestService.getGroupById(groupId).subscribe(
+        (group: GroupFinest) => {
+          this.groupFinest = group;
+          this.dataSource.data = group.members;
+          this.isLoading = false;
+        },
+        (error) => {
+          console.log('Error occurred while fetching group:', error);
+          this.isLoading = false;
+        }
+      );
+    }, 2000); // Le délai est de 2000 millisecondes, soit 2 secondes
+  }*/
 
+  onChangePage(pageEvent: PageEvent) {
+    this.pageIndex = pageEvent.pageIndex;
+    this.pageSize = pageEvent.pageSize;
+  }
 
 }
