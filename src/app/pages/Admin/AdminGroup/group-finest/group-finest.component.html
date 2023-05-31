@@ -3,7 +3,12 @@
   <p>ID: {{ groupFinest.id }}</p>
   <p>Name: {{ groupFinest.name }}</p>
   <h3>Members:</h3>
+
+  <button class="addUser" mat-button ><mat-icon fontIcon="person_add"></mat-icon>Add user</button>
+
+
   <div class="scroll">
+    <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
     <table>
       <thead>
       <tr>
@@ -24,4 +29,12 @@
       </tbody>
     </table>
   </div>
+  <mat-paginator [length]="groupFinest.members.length"
+                 (page)="onChangePage($event)"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageSizesOption"
+                 [pageIndex]="pageIndex"
+                 showFirstLastButtons="showFirstLastButtons"
+                 aria-label="Select page">
+  </mat-paginator>
 </div>

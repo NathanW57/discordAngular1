@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Group } from "../../../../model/Group";
 import { MatTableDataSource } from "@angular/material/table";
 import { GroupService } from "../../../../service/group.service";
-import { Router } from "@angular/router";
-import {GroupFinestService} from "../../../../service/group-finest.service";
 
 @Component({
   selector: 'app-group',
@@ -15,7 +13,7 @@ export class GroupComponent implements OnInit {
   dataSource: MatTableDataSource<Group>;
   displayedColumns: string[] = ['name'];
 
-  constructor(private serviceGroup: GroupService, private router: Router , private groupFinest : GroupFinestService) {
+  constructor(private serviceGroup: GroupService) {
     this.dataSource = new MatTableDataSource<Group>([]);
   }
 

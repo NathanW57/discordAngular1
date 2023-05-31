@@ -31,6 +31,10 @@ import { UpdateUserComponent } from './pages/Admin/AdminGroup/update-user/update
 import {MatListModule} from "@angular/material/list";
 import { UpdateUserPipe } from './pipe/update-user.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { AddUserComponent } from './pages/Admin/AdminGroup/add-user/add-user.component';
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -51,6 +55,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MenuGroupAdminComponent,
     UpdateUserComponent,
     UpdateUserPipe,
+    AddUserComponent,
   ],
     imports: [
         BrowserModule,
@@ -68,7 +73,10 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatTableModule,
         MatMenuModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatPaginatorModule,
+        MatProgressBarModule,
+        MatSortModule
     ],
   providers: [],
   bootstrap: [AppComponent]

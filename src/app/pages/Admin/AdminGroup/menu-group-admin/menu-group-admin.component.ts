@@ -24,10 +24,6 @@ export class MenuGroupAdminComponent {
           width: '800px',
           data: user
         });
-
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('Dialog result:', result);
-        });
       },
       (error) => {
         console.error('Error:', error);

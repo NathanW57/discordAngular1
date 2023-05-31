@@ -13,6 +13,7 @@ import {AuthentificationGuard} from "./guards/authentification.guard";
 import {AdminPanelComponent} from "./panel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
 import {UpdateUserComponent} from "./pages/Admin/AdminGroup/update-user/update-user.component";
+import {AddUserComponent} from "./pages/Admin/AdminGroup/add-user/add-user.component";
 
 const routes: Routes = [
 
@@ -50,6 +51,10 @@ const routes: Routes = [
 
       }
     ]
+  },
+  {
+    path : "adduser",
+    component : AddUserComponent
   }
   ,
   {
