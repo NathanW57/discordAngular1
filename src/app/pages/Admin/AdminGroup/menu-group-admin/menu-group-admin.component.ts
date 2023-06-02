@@ -12,6 +12,7 @@ import { UpdateUserComponent } from "../update-user/update-user.component";
 export class MenuGroupAdminComponent {
   @Input() userId: number | undefined;
 
+
   constructor(
     private dialog: MatDialog,
     private userService: UserService

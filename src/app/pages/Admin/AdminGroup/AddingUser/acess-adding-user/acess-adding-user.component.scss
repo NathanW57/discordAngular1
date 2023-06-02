@@ -1,0 +1,13 @@
+
+.icon-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5%;
+    border-radius: 5px;
+    background-color: var(--orangeclair);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.3s;
+}

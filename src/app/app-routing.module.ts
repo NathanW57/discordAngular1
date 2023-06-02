@@ -8,12 +8,15 @@ import {ChangePasswordComponent} from "./pages/change-password/change-password.c
 import {GroupComponent} from "./pages/Admin/AdminGroup/group/group.component";
 import {LogOutComponent} from "./component/log-out/log-out.component";
 import {GroupFinestComponent} from "./pages/Admin/AdminGroup/group-finest/group-finest.component";
-import {AcessAdminComponent} from "./panel/acess-admin/acess-admin.component";
+import {AcessAdminComponent} from "./panel/adminPanel/acess-admin/acess-admin.component";
 import {AuthentificationGuard} from "./guards/authentification.guard";
-import {AdminPanelComponent} from "./panel/admin-panel/admin-panel.component";
+import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
 import {UpdateUserComponent} from "./pages/Admin/AdminGroup/update-user/update-user.component";
-import {AddUserComponent} from "./pages/Admin/AdminGroup/add-user/add-user.component";
+import {AddUserComponent} from "./pages/Admin/AdminGroup/AddingUser/add-user/add-user.component";
+import {
+  AcessAddingUserComponent
+} from "./pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component";
 
 const routes: Routes = [
 
@@ -44,6 +47,16 @@ const routes: Routes = [
               {
                 path : 'userUpdate',
                 component : UpdateUserComponent
+              },
+              {
+                path : 'accessAddUser',
+                component : AcessAddingUserComponent,
+                children : [
+                  {
+                    path : 'adduser',
+                    component : AddUserComponent
+                  }
+                ]
               }
             ]
           }
@@ -52,11 +65,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path : "adduser",
-    component : AddUserComponent
-  }
-  ,
+
   {
     path: "forgotPassword",
     component : ChangePasswordComponent

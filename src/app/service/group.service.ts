@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Group} from "../model/Group";
 import {environnement} from "../environnements/Environnement";
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import {GroupFinest} from "../model/GroupFinest";
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,13 @@ export class GroupService {
       (error) => {
       }
     );
+  }
+
+  public getGroupById(id: number | undefined): Observable<GroupFinest> {
+    const jwt = localStorage.getItem('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+
+    return this.http.get<GroupFinest>(environnement.serveurUrl + 'group/' + id, { headers });
   }
 
 }

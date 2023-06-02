@@ -18,14 +18,14 @@ import { Error404Component } from './pages/error404/error404.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { TopBarComponent } from './panel/top-bar/top-bar.component';
 import { LeftBarComponent } from './panel/left-bar/left-bar.component';
-import { AdminPanelComponent } from './panel/admin-panel/admin-panel.component';
+import { AdminPanelComponent } from './panel/adminPanel/admin-panel/admin-panel.component';
 import { GroupComponent } from './pages/Admin/AdminGroup/group/group.component';
 import {MatTableModule} from "@angular/material/table";
 import { LogOutComponent } from './component/log-out/log-out.component';
 import { MenuComponent } from './panel/menu/menu.component';
 import {MatMenuModule} from "@angular/material/menu";
 import { GroupFinestComponent } from './pages/Admin/AdminGroup/group-finest/group-finest.component';
-import { AcessAdminComponent } from './panel/acess-admin/acess-admin.component';
+import { AcessAdminComponent } from './panel/adminPanel/acess-admin/acess-admin.component';
 import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/menu-group-admin/menu-group-admin.component';
 import { UpdateUserComponent } from './pages/Admin/AdminGroup/update-user/update-user.component';
 import {MatListModule} from "@angular/material/list";
@@ -33,9 +33,10 @@ import { UpdateUserPipe } from './pipe/update-user.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { AddUserComponent } from './pages/Admin/AdminGroup/add-user/add-user.component';
+import { AddUserComponent } from './pages/Admin/AdminGroup/AddingUser/add-user/add-user.component';
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { AcessAddingUserComponent } from './pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     UpdateUserComponent,
     UpdateUserPipe,
     AddUserComponent,
+    AcessAddingUserComponent,
   ],
   imports: [
     BrowserModule,

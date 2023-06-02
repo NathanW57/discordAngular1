@@ -1,3 +1,8 @@
+
+<div class="container-dialog">
+  <div class="container">
+
+    <div class="scroll">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
 
   <ng-container matColumnDef="id">
@@ -24,13 +29,15 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+    </div>
+    <mat-paginator
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizesOption"
+                   [pageIndex]="pageIndex"
+                   showFirstLastButtons="showFirstLastButtons"
+                   aria-label="Select page">
+    </mat-paginator>
 
-<mat-paginator [length]=""
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizesOption"
-               [pageIndex]="pageIndex"
-               showFirstLastButtons="showFirstLastButtons"
-               aria-label="Select page">
-</mat-paginator>
-
+  </div>
+</div>
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GroupFinest } from "../../../../model/GroupFinest";
 import { GroupFinestService } from "../../../../service/group-finest.service";
@@ -14,6 +14,7 @@ import {MatSort} from "@angular/material/sort";
 })
 export class GroupFinestComponent implements OnInit {
   groupFinest: GroupFinest | undefined;
+
   isLoading = false;
   dataSource = new MatTableDataSource<UserGroupFinest>([]);
   displayedColumns: string[] = ['firstname', 'lastname', 'email', 'action'];

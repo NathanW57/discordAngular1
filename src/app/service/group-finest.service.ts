@@ -3,11 +3,14 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject, Observable } from "rxjs";
 import { GroupFinest } from "../model/GroupFinest";
 import { environnement } from "../environnements/Environnement";
+import {Group} from "../model/Group";
+import {GroupService} from "./group.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GroupFinestService {
+
 
   constructor(private http: HttpClient) { }
 
