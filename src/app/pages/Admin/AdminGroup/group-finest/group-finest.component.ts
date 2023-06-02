@@ -54,6 +54,8 @@ export class GroupFinestComponent implements OnInit {
 
   }
 
+
+
   getGroupById(groupId: number): void {
     this.isLoading = true;
     this.groupFinestService.getGroupById(groupId).subscribe(

@@ -4,10 +4,6 @@
   </div>
 
   <div *ngIf="groupFinest">
-    <h2>Group Details</h2>
-    <p>ID: {{ groupFinest.id }}</p>
-    <p>Name: {{ groupFinest.name }}</p>
-    <h3>Members:</h3>
 
 
     <div class="table-header">
@@ -16,9 +12,11 @@
       </div>
 
       <div class="filter-field">
+        <h3>Members</h3>
         <mat-form-field appearance="fill">
-          <mat-label>Filter</mat-label>
+          <mat-label>Search</mat-label>
           <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
+          <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
       </div>
     </div>

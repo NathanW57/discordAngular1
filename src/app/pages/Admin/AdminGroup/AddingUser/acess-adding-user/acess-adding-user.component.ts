@@ -23,13 +23,18 @@ export class AcessAddingUserComponent {
   }
 
 
+  ngOnInit() {
+    console.log("user id " + this.groupId);
+  }
+
   @Input() groupId?: number ;
+
   openUserUpdateDialog(): void {
     this.groupService.getGroupById(this.groupId).subscribe(
       (group: GroupFinest) => {
         const dialogRef = this.dialog.open(AddUserComponent, {
           width: '800px',
-          data: group
+          data: {group: group, groupId: this.groupId}
         });
       },
       (error) => {
@@ -37,4 +42,6 @@ export class AcessAddingUserComponent {
       }
     );
   }
+
+
 }

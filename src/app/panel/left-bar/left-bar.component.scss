@@ -7,27 +7,12 @@
   justify-content: flex-start;
 }
 
-.initials {
-  font-size: 25px;
-  color: var(--orange);
-  font-weight: bold;
-  background-color: var(--bleufonce);
-  width: 100%;
-  height: 7%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  p {
-    flex: 0 0 60px;
-  }
-}
 
 .adminSection {
   margin-top: auto;
   margin-bottom: 50px; /* Ajustez la valeur selon vos besoins */
-  margin-left: 12px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
@@ -7,6 +7,7 @@ import {GroupFinest} from "../../../../../model/GroupFinest";
 import {UserGroupFinest} from "../../../../../model/UserGroupFinest";
 import {ActivatedRoute} from "@angular/router";
 import {GroupFinestService} from "../../../../../service/group-finest.service";
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 
 
@@ -19,8 +20,7 @@ export class AddUserComponent implements OnInit{
 
 
   groupFinest: GroupFinest | undefined
-
-  @Input() groupId: number | undefined;
+  groupId: number | undefined;
 
 
 
@@ -44,17 +44,16 @@ export class AddUserComponent implements OnInit{
 
   displayedColumns: string[] = ['id','firstname','lastname','email'];
 
-  constructor(private groupFinestService: GroupFinestService , private route: ActivatedRoute) {
+  constructor(private groupFinestService: GroupFinestService , private route: ActivatedRoute,@Inject(MAT_DIALOG_DATA) public data: any) {
     this.dataSource = new MatTableDataSource<UserGroupFinest>([]);
+    this.groupId = data.groupId; // retrieve groupId from data object
+
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const groupId = params.get('id');
-      if (groupId) {
-        this.getGroupById(Number(groupId));
-      }
-    });
+    if (this.groupId) {
+      this.getGroupById(this.groupId);
+    }
   }
 
 

@@ -10,6 +10,10 @@
   background-color: var(--gris);
   padding: 10px;
   text-align: center;
+
+  li{
+    border-radius: 60px;
+  }
 }
 
 /* Button , couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/

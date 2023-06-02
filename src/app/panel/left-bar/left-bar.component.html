@@ -1,5 +1,4 @@
 <div class="leftBar">
-  <div class="initials"><p>M.N.S</p></div>
   <div class="adminSection" *ngIf="login.isUserLoggedIn() && login.isUserAdmin()">
     <app-acess-admin (click)="redirectToAdminPanel()"></app-acess-admin>
   </div>

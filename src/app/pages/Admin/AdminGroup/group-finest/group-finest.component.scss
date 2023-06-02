@@ -12,34 +12,46 @@ p {
   height: 100%;
   background-color: var(--grisclair);
 
-
-  // Espacer le add-User et le filtre
   .table-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
 
-
-    // Positionnement du add-user et couleur du bouton
     .add-user {
-      text-align: left;
-      width: 100%;
-    }
+      display: flex;
 
-    // Mettre le filtre à droite
-    .filter-field {
-      text-align: right;
-
-      input{
-        color: var(--noir);
+      button {
+        color: var(--orange);
       }
     }
 
+    .filter-field {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        margin-bottom: 10px;
+      }
+
+      mat-form-field {
+        width: 50%;
+        border-radius: 15px;
+        overflow: hidden;
+
+
+        mat-icon{
+          color: var(--orange);
+          font-size: 25px;
+        }
+      }
+    }
   }
 
   .scroll{
-    max-height: 70vh;  // Le conteneur de défilement prendra 70% de la hauteur de l'écran
+    max-height: 70vh;
     overflow: scroll;
     overflow-x: hidden;
   }
@@ -52,7 +64,6 @@ mat-header-cell {
   font-size: 18px;
   border: 1px solid var(--noir);
   background-color: var(--bleufonce);
-  color: var(--orange);
 }
 
 mat-cell {
@@ -66,13 +77,10 @@ mat-cell {
 mat-table {
   background-color: var(--grismoyen);
   width: 100%;
-  border-collapse: collapse;  // Pour s'assurer que les bordures des cellules ne se chevauchent pas
+  border-collapse: collapse;
   margin-top: 20px;
 }
 
-
-
-// Centrer le spinner
 .loading {
   display: flex;
   justify-content: center;
@@ -80,8 +88,12 @@ mat-table {
   flex-direction: column;
 }
 
-
-//Customiser la couleur du spinner
 :host ::ng-deep .custom-spinner circle{
   stroke: var(--orange);
+}
+
+
+mat-paginator{
+  border-radius: 60px;
+  background-color: var(--grismoyen);
 }
