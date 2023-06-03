@@ -33,7 +33,7 @@ export class AcessAddingUserComponent {
     this.groupService.getGroupById(this.groupId).subscribe(
       (group: GroupFinest) => {
         const dialogRef = this.dialog.open(AddUserComponent, {
-          width: '800px',
+          width: '1600px',
           data: {group: group, groupId: this.groupId}
         });
       },

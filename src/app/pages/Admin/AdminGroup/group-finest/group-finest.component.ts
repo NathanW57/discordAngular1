@@ -34,7 +34,7 @@ export class GroupFinestComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  pageSizesOption = [2,4,6,8,10];
+  pageSizesOption = [2,4,6,8,10,25,50,100];
   pageSize = 10;
   pageIndex = 0;
 

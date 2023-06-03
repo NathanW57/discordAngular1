@@ -1,43 +1,85 @@
-
 <div class="container-dialog">
   <div class="container">
-
     <div class="scroll">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table" matSort>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID"> ID </th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID"> ID </th>
-    <td mat-cell *matCellDef="let element">{{element.id}}</td>
-  </ng-container>
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Firstname </th>
+          <td mat-cell *matCellDef="let element">{{element.firstname}}</td>
+        </ng-container>
 
-  <ng-container matColumnDef="firstname">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Firstname </th>
-    <td mat-cell *matCellDef="let element">{{element.firstname}}</td>
-  </ng-container>
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Lastname </th>
+          <td mat-cell *matCellDef="let element">{{element.lastname}}</td>
+        </ng-container>
 
-  <ng-container matColumnDef="lastname">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Lastname </th>
-    <td mat-cell *matCellDef="let element" >{{element.lastname}}</td>
-  </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </th>
+          <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
 
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </th>
-    <td mat-cell *matCellDef="let element">{{element.email}}</td>
-  </ng-container>
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" (click)="onRowClicked(element)">
+              +
+            </button>
+          </td>
+        </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-</table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
     <mat-paginator
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="pageSizesOption"
-                   [pageIndex]="pageIndex"
-                   showFirstLastButtons="showFirstLastButtons"
-                   aria-label="Select page">
+      *ngIf="dataSource.data.length > 5"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizesOption"
+      [pageIndex]="pageIndex"
+      showFirstLastButtons="showFirstLastButtons"
+      aria-label="Select page">
     </mat-paginator>
+  </div>
 
+  <div class="container">
+    <div class="scroll">
+      <table mat-table [dataSource]="selectedDataSource" class="mat-elevation-z8 demo-table" matSort>
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by ID"> ID </th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Firstname </th>
+          <td mat-cell *matCellDef="let element">{{element.firstname}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Lastname </th>
+          <td mat-cell *matCellDef="let element">{{element.lastname}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </th>
+          <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="selectedDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: selectedDisplayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-paginator
+      *ngIf="selectedDataSource.data.length > 10"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizesOption"
+      [pageIndex]="pageIndex"
+      showFirstLastButtons="showFirstLastButtons"
+      aria-label="Select page">
+    </mat-paginator>
+    <button mat-raised-button color="primary" (click)="validate()">Valider</button>
   </div>
 </div>
-

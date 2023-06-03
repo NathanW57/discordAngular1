@@ -41,8 +41,7 @@ p {
         border-radius: 15px;
         overflow: hidden;
 
-
-        mat-icon{
+        mat-icon {
           color: var(--orange);
           font-size: 25px;
         }
@@ -50,10 +49,12 @@ p {
     }
   }
 
-  .scroll{
+  .scroll {
     max-height: 70vh;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--orange) var(--grisclair);
   }
 }
 
@@ -88,12 +89,12 @@ mat-table {
   flex-direction: column;
 }
 
-:host ::ng-deep .custom-spinner circle{
+:host ::ng-deep .custom-spinner circle {
   stroke: var(--orange);
 }
 
-
-mat-paginator{
+mat-paginator {
   border-radius: 60px;
   background-color: var(--grismoyen);
+
 }
