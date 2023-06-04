@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GroupFinest } from "../../../../model/GroupFinest";
 import { GroupFinestService } from "../../../../service/group-finest.service";
@@ -6,13 +6,14 @@ import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
 import {UserGroupFinest} from "../../../../model/UserGroupFinest";
 import {MatSort} from "@angular/material/sort";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-group-finest',
   templateUrl: './group-finest.component.html',
   styleUrls: ['./group-finest.component.scss']
 })
-export class GroupFinestComponent implements OnInit {
+export class GroupFinestComponent implements OnInit,OnDestroy {
   groupFinest: GroupFinest | undefined;
 
   isLoading = false;
@@ -28,6 +29,9 @@ export class GroupFinestComponent implements OnInit {
   }
 
   filterValue!: string;
+
+
+  private memberAddedSubscription: Subscription | undefined;
 
   constructor(
     private groupFinestService: GroupFinestService,
@@ -46,8 +50,20 @@ export class GroupFinestComponent implements OnInit {
         this.getGroupById(Number(groupId));
       }
     });
+
+    this.memberAddedSubscription = this.groupFinestService.memberAdded.subscribe(() => {
+      const groupId = this.route.snapshot.paramMap.get('id');
+      if (groupId) {
+        this.getGroupById(Number(groupId));
+      }
+    });
   }
 
+  ngOnDestroy(): void {
+    if (this.memberAddedSubscription) {
+      this.memberAddedSubscription.unsubscribe();
+    }
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -4,7 +4,7 @@ import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {UserGroupFinest} from "../../../../../model/UserGroupFinest";
 import {GroupFinestService} from "../../../../../service/group-finest.service";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-add-user',
@@ -30,9 +30,20 @@ export class AddUserComponent implements OnInit {
     this.selectedDataSource.sort = this.sort;
   }
 
-  validate() {
-    // Handle your validation logic here
-    console.log('Validation button clicked. Selected users:', this.selectedDataSource.data);
+  validate(): void {
+    this.selectedDataSource.data.forEach(user => {
+      if (this.groupId != null) {
+        this.groupFinestService.addMemberToGroup(this.groupId, user.id).subscribe({
+          next: () => {
+            console.log(`Added user ${user.firstname} ${user.lastname} to group ${this.groupId}`);
+          },
+          error: error => {
+            console.log('There was an error!', error);
+          }
+        });
+      }
+    });
+    this.dialogRef.close();
   }
 
 
@@ -43,7 +54,7 @@ export class AddUserComponent implements OnInit {
   selectedDisplayedColumns: string[] = ['id', 'firstname', 'lastname', 'email'];
 
 
-  constructor(private groupFinestService: GroupFinestService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private groupFinestService: GroupFinestService, @Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<AddUserComponent>) {
     this.dataSource = new MatTableDataSource<UserGroupFinest>([]);
     this.selectedDataSource = new MatTableDataSource<UserGroupFinest>([]);
     this.groupId = data.groupId; // retrieve groupId from data object
