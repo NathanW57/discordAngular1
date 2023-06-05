@@ -13,7 +13,7 @@ export class DialogDeleteUserComponent {
 
 
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(
               private dialogRef: MatDialogRef<DialogDeleteUserComponent>,
               @Inject(MAT_DIALOG_DATA) public data: {user: User, groupId: number},
               private groupService : GroupFinestService) {

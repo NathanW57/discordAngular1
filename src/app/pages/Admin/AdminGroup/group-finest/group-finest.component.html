@@ -40,7 +40,7 @@
 
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-          <mat-cell *matCellDef="let member"> <app-access-delete-user [userId]="member.id" [groupIdTwo]="groupFinest?.id"></app-access-delete-user> </mat-cell>
+          <mat-cell *matCellDef="let member"> <app-access-delete-user [userId]="member.id" [groupIdTwo]="groupFinest.id"></app-access-delete-user> </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

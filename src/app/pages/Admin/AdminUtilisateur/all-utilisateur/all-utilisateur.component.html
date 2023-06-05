@@ -11,13 +11,14 @@
       </div>
 
       <div class="filter-field">
-        <h3>Members</h3>
+        <h3>Users</h3>
         <mat-form-field appearance="fill">
           <mat-label>Search</mat-label>
           <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
       </div>
+      <app-admin-user-access-adding></app-admin-user-access-adding>
     </div>
 
     <div class="scroll">

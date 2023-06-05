@@ -27,7 +27,7 @@ import {MatMenuModule} from "@angular/material/menu";
 import { GroupFinestComponent } from './pages/Admin/AdminGroup/group-finest/group-finest.component';
 import { AcessAdminComponent } from './panel/adminPanel/acess-admin/acess-admin.component';
 import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/menu-group-admin/menu-group-admin.component';
-import { UpdateUserComponent } from './pages/Admin/AdminGroup/update-user/update-user.component';
+import { UpdateUserComponent } from './pages/Admin/AdminUtilisateur/update-user/update-user.component';
 import {MatListModule} from "@angular/material/list";
 import { UpdateUserPipe } from './pipe/update-user.pipe';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -41,7 +41,9 @@ import { DialogDeleteUserComponent } from './pages/Admin/AdminGroup/deleteUser/d
 import { MenuUtilisateurComponent } from './pages/Admin/AdminUtilisateur/menu-utilisateur/menu-utilisateur.component';
 import { AccessDeleteUserComponent } from './pages/Admin/AdminGroup/deleteUser/access-delete-user/access-delete-user.component';
 import { AllUtilisateurComponent } from './pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component';
-
+import { DialogUtilisateurDeleteComponent } from './pages/Admin/AdminUtilisateur/dialog-utilisateur-delete/dialog-utilisateur-delete.component';
+import { AdminUserAccessAddingComponent } from './pages/Admin/AdminUtilisateur/AddingUser/admin-user-access-adding/admin-user-access-adding.component';
+import { AdminUserDialogAddingUserComponent } from './pages/Admin/AdminUtilisateur/AddingUser/admin-user-dialog-adding-user/admin-user-dialog-adding-user.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,10 @@ import { AllUtilisateurComponent } from './pages/Admin/AdminUtilisateur/all-util
     MenuUtilisateurComponent,
     AccessDeleteUserComponent,
     AllUtilisateurComponent,
+    DialogUtilisateurDeleteComponent,
+    AcessAddingUserComponent,
+    AdminUserAccessAddingComponent,
+    AdminUserDialogAddingUserComponent,
   ],
   imports: [
     BrowserModule,

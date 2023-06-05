@@ -1,0 +1,44 @@
+
+
+<div class="container-dialog">
+  <div class="container">
+    <form [formGroup]="formulaire">
+      <h1>Adding User</h1>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="lastname" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['lastname'].hasError('required')">Last Name is required</mat-error>
+        <mat-error *ngIf="formulaire.controls['lastname'].hasError('minlength')">Last Name must be at least 6 characters</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="firstname" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['firstname'].hasError('required')">First Name is required</mat-error>
+        <mat-error *ngIf="formulaire.controls['firstname'].hasError('minlength')">First Name must be at least 6 characters</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['email'].hasError('required')">Email must not be empty</mat-error>
+        <mat-error *ngIf="formulaire.controls['email'].hasError('email')">Email is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="text" formControlName="password" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['password'].hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="formulaire.controls['password'].hasError('minlength')">Password must be at least 8 characters</mat-error>
+      </mat-form-field>
+
+
+
+      <div class="placementButton">
+        <button id="cancelButton" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+        <button id="logIn" type="submit" mat-raised-button color="primary" (click)="validate()">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

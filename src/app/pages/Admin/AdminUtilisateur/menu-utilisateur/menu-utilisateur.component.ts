@@ -1,11 +1,9 @@
-import {Component, Input} from '@angular/core';
-import {MatDialog} from "@angular/material/dialog";
+import {Component, Inject, Input} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {UserService} from "../../../../service/user.service";
-import {GroupFinestService} from "../../../../service/group-finest.service";
 import {User} from "../../../../model/User";
-import {UpdateUserComponent} from "../../AdminGroup/update-user/update-user.component";
-import {GroupFinest} from "../../../../model/GroupFinest";
-import {DialogDeleteUserComponent} from "../../AdminGroup/deleteUser/dialog-delete-user/dialog-delete-user.component";
+import {UpdateUserComponent} from "../update-user/update-user.component";
+import {DialogUtilisateurDeleteComponent} from "../dialog-utilisateur-delete/dialog-utilisateur-delete.component";
 
 @Component({
   selector: 'app-menu-utilisateur',
@@ -13,17 +11,16 @@ import {DialogDeleteUserComponent} from "../../AdminGroup/deleteUser/dialog-dele
   styleUrls: ['./menu-utilisateur.component.scss']
 })
 export class MenuUtilisateurComponent {
+
+
   @Input() userId: number | undefined;
 
-
-  @Input() groupIdTwo: number | undefined;
 
 
 
   constructor(
     private dialog: MatDialog,
-    private userService: UserService,
-    private groupService : GroupFinestService
+    private userService: UserService
   ) {}
 
   openUserUpdateDialog(): void {
@@ -41,11 +38,11 @@ export class MenuUtilisateurComponent {
   }
 
   openDeleteUserUpdateDialog(): void {
-    this.groupService.getGroupIdAndUserId(1,this.userId).subscribe(
-      (group: GroupFinest) => {
-        const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
+    this.userService.getUserById(this.userId).subscribe(
+      (user: User) => {
+        const dialogRef = this.dialog.open(DialogUtilisateurDeleteComponent, {
           width: '600px',
-          data: group
+          data: user
         });
       },
       (error) => {

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { User } from "../../../../model/User";
 import { UserService } from "../../../../service/user.service";
-import { UpdateUserComponent } from "../update-user/update-user.component";
+import { UpdateUserComponent } from "../../AdminUtilisateur/update-user/update-user.component";
 import {DialogDeleteUserComponent} from "../deleteUser/dialog-delete-user/dialog-delete-user.component";
 import {GroupFinestService} from "../../../../service/group-finest.service";
 import {GroupFinest} from "../../../../model/GroupFinest";

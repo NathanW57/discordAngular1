@@ -12,12 +12,15 @@ import {AcessAdminComponent} from "./panel/adminPanel/acess-admin/acess-admin.co
 import {AuthentificationGuard} from "./guards/authentification.guard";
 import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
-import {UpdateUserComponent} from "./pages/Admin/AdminGroup/update-user/update-user.component";
+import {UpdateUserComponent} from "./pages/Admin/AdminUtilisateur/update-user/update-user.component";
 import {AddUserComponent} from "./pages/Admin/AdminGroup/AddingUser/add-user/add-user.component";
 import {
   AcessAddingUserComponent
 } from "./pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
+import {
+  DialogUtilisateurDeleteComponent
+} from "./pages/Admin/AdminUtilisateur/dialog-utilisateur-delete/dialog-utilisateur-delete.component";
 
 const routes: Routes = [
 
@@ -39,7 +42,7 @@ const routes: Routes = [
     children : [
       {
         path : "users",
-        component : AllUtilisateurComponent
+        component : AllUtilisateurComponent,
       },
       {
         path: 'group',

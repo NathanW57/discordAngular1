@@ -17,6 +17,10 @@ import {User} from "../../../../model/User";
 })
 export class AllUtilisateurComponent implements OnInit, OnDestroy {
 
+  private userAdded: Subscription | undefined;
+
+
+  private userDeleted: Subscription | undefined;
 
   isLoading = false;
   dataSource = new MatTableDataSource<UserGroupFinest>([]);
@@ -56,6 +60,29 @@ export class AllUtilisateurComponent implements OnInit, OnDestroy {
       .subscribe(users => {
         this.dataSource.data = users;
       });
+
+    // lors d'un ajout d'un utilisateur remettre à jour la liste
+    this.userAdded = this.userService.userAdded
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => {
+        this.userService.getAllUser()
+          .pipe(takeUntil(this.unsubscribe$))
+          .subscribe(users => {
+            this.dataSource.data = users;
+          });
+      });
+
+    // lors d'une suppression d'un utilisateur remettre à jour la liste
+    this.userDeleted = this.userService.userDeleted
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(() => {
+        this.userService.getAllUser()
+          .pipe(takeUntil(this.unsubscribe$))
+          .subscribe(users => {
+            this.dataSource.data = users;
+          });
+      }
+    );
   }
 
 
