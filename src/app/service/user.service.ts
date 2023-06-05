@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {GroupFinest} from "../model/GroupFinest";
 import {Group} from "../model/Group";
+import {UserGroupFinest} from "../model/UserGroupFinest";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import {Group} from "../model/Group";
 export class UserService {
 
   public _user: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  public _userFinest: BehaviorSubject<UserGroupFinest[]> = new BehaviorSubject<UserGroupFinest[]>([]);
 
   constructor(private http: HttpClient) { }
 
@@ -23,15 +25,10 @@ export class UserService {
 
 
 
-  public getAllUser() {
+  public getAllUser(): Observable<UserGroupFinest[]> {
     const jwt = localStorage.getItem('jwt');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.get<User[]>(`${environnement.serveurUrl}users`, { headers }).subscribe(
-      (users : User[]) => {
-        this._user.next(users);
-      },
-      error => {}
-        );
-      }
+    return this.http.get<UserGroupFinest[]>(`${environnement.serveurUrl}users`, { headers });
+  }
 
 }

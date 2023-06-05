@@ -33,6 +33,9 @@ export class GroupFinestComponent implements OnInit,OnDestroy {
 
   private memberAddedSubscription: Subscription | undefined;
 
+
+  private memberDeletedSubscription: Subscription | undefined;
+
   constructor(
     private groupFinestService: GroupFinestService,
     private route: ActivatedRoute
@@ -57,6 +60,14 @@ export class GroupFinestComponent implements OnInit,OnDestroy {
         this.getGroupById(Number(groupId));
       }
     });
+
+    this.memberDeletedSubscription = this.groupFinestService.memberDeleted.subscribe(() => {
+      const groupId = this.route.snapshot.paramMap.get('id');
+      if (groupId) {
+        this.getGroupById(Number(groupId));
+      }
+    }
+    );
   }
 
   ngOnDestroy(): void {

@@ -19,13 +19,8 @@ export class AcessAddingUserComponent {
     private dialog: MatDialog,
     private groupService: GroupService
   ) {
-    console.log("user id " + this.groupId);
   }
 
-
-  ngOnInit() {
-    console.log("user id " + this.groupId);
-  }
 
   @Input() groupId?: number ;
 

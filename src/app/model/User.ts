@@ -13,6 +13,6 @@ export type User =
 
     password? : string;
 
-    role : Role[]
+    role: Role[]
 
   }

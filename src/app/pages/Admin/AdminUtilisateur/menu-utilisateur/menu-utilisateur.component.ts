@@ -1,18 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { MatDialog } from "@angular/material/dialog";
-import { User } from "../../../../model/User";
-import { UserService } from "../../../../service/user.service";
-import { UpdateUserComponent } from "../update-user/update-user.component";
-import {DialogDeleteUserComponent} from "../deleteUser/dialog-delete-user/dialog-delete-user.component";
+import {Component, Input} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {UserService} from "../../../../service/user.service";
 import {GroupFinestService} from "../../../../service/group-finest.service";
+import {User} from "../../../../model/User";
+import {UpdateUserComponent} from "../../AdminGroup/update-user/update-user.component";
 import {GroupFinest} from "../../../../model/GroupFinest";
+import {DialogDeleteUserComponent} from "../../AdminGroup/deleteUser/dialog-delete-user/dialog-delete-user.component";
 
 @Component({
-  selector: 'app-menu-group-admin',
-  templateUrl: './menu-group-admin.component.html',
-  styleUrls: ['./menu-group-admin.component.scss']
+  selector: 'app-menu-utilisateur',
+  templateUrl: './menu-utilisateur.component.html',
+  styleUrls: ['./menu-utilisateur.component.scss']
 })
-export class MenuGroupAdminComponent {
+export class MenuUtilisateurComponent {
   @Input() userId: number | undefined;
 
 
@@ -53,4 +53,5 @@ export class MenuGroupAdminComponent {
       }
     );
   }
+
 }

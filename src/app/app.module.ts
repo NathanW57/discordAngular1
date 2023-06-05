@@ -37,6 +37,10 @@ import { AddUserComponent } from './pages/Admin/AdminGroup/AddingUser/add-user/a
 import {MatSortModule} from "@angular/material/sort";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { AcessAddingUserComponent } from './pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component';
+import { DialogDeleteUserComponent } from './pages/Admin/AdminGroup/deleteUser/dialog-delete-user/dialog-delete-user.component';
+import { MenuUtilisateurComponent } from './pages/Admin/AdminUtilisateur/menu-utilisateur/menu-utilisateur.component';
+import { AccessDeleteUserComponent } from './pages/Admin/AdminGroup/deleteUser/access-delete-user/access-delete-user.component';
+import { AllUtilisateurComponent } from './pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component';
 
 
 @NgModule({
@@ -59,6 +63,10 @@ import { AcessAddingUserComponent } from './pages/Admin/AdminGroup/AddingUser/ac
     UpdateUserPipe,
     AddUserComponent,
     AcessAddingUserComponent,
+    DialogDeleteUserComponent,
+    MenuUtilisateurComponent,
+    AccessDeleteUserComponent,
+    AllUtilisateurComponent,
   ],
   imports: [
     BrowserModule,

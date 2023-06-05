@@ -69,7 +69,6 @@ export class AddUserComponent implements OnInit {
   getAllOtherMemberWitouthThisGroupId(groupId: number): void {
     this.groupFinestService.getAllOtherMemberWitouthThisGroupId(groupId).subscribe(
       (users: UserGroupFinest[]) => {
-        console.log('users:', users)
         this.dataSource.data = users;
       },
       (error) => {

@@ -17,6 +17,7 @@ import {AddUserComponent} from "./pages/Admin/AdminGroup/AddingUser/add-user/add
 import {
   AcessAddingUserComponent
 } from "./pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component";
+import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
 
 const routes: Routes = [
 
@@ -36,6 +37,10 @@ const routes: Routes = [
     component : AdminPanelComponent,
     canActivate:[AdminGuard],
     children : [
+      {
+        path : "users",
+        component : AllUtilisateurComponent
+      },
       {
         path: 'group',
         component : GroupComponent,

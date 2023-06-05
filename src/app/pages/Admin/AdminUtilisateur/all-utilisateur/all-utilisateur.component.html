@@ -3,12 +3,11 @@
     <mat-progress-spinner mode="indeterminate" class="custom-spinner"></mat-progress-spinner>
   </div>
 
-  <div *ngIf="groupFinest">
+  <div>
 
 
     <div class="table-header">
       <div class="add-user">
-        <app-acess-adding-user [groupId]="groupFinest.id"></app-acess-adding-user>
       </div>
 
       <div class="filter-field">
@@ -40,7 +39,7 @@
 
         <ng-container matColumnDef="action">
           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-          <mat-cell *matCellDef="let member"> <app-access-delete-user [userId]="member.id" [groupIdTwo]="groupFinest?.id"></app-access-delete-user> </mat-cell>
+          <mat-cell *matCellDef="let member"> <app-menu-utilisateur [userId]="member.id"></app-menu-utilisateur> </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -49,7 +48,7 @@
       </mat-table>
     </div>
 
-    <mat-paginator [length]="groupFinest.members.length"
+    <mat-paginator
                    [pageSize]="pageSize"
                    [pageSizeOptions]="pageSizesOption"
                    [pageIndex]="pageIndex"

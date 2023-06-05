@@ -17,6 +17,9 @@ export class GroupFinestService {
 
   memberAdded = new Subject<void>();
 
+  memberDeleted = new Subject<void>();
+
+
   getGroupById(groupId: number): Observable<GroupFinest> {
     const jwt = localStorage.getItem('jwt');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
@@ -41,4 +44,21 @@ export class GroupFinestService {
     );
   }
 
+
+  deleteMemberToGroup(groupId: number, userId: number | undefined): Observable<any> {
+    const jwt = localStorage.getItem('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+
+    return this.http.delete<any>(`${environnement.serveurUrl}group/${groupId}/members/${userId}`, { headers }).pipe(
+      tap(() => {
+        this.memberDeleted.next(); // Emit an event to say that a member was deleted
+      })
+    );
+  }
+
+  getGroupIdAndUserId(groupId: number | undefined, userId: number | undefined): Observable<any> {
+    const jwt = localStorage.getItem('jwt');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
+    return this.http.get<any>(`${environnement.serveurUrl}group/${groupId}/members/${userId}`, { headers });
+  }
 }
