@@ -6,15 +6,19 @@
   <div *ngIf="groupFinest">
 
 
+    <div class="placementSecondContainer">
+
+
+
+    <div class="secondContainer">
+
+
     <div class="table-header">
-      <div class="add-user">
-        <app-acess-adding-user [groupId]="groupFinest.id"></app-acess-adding-user>
-      </div>
 
       <div class="filter-field">
-        <h3>Members</h3>
+        <h3>Membres</h3>
         <mat-form-field appearance="fill">
-          <mat-label>Search</mat-label>
+          <mat-label>Recherche</mat-label>
           <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
@@ -24,12 +28,12 @@
     <div class="scroll">
       <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="firstname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> First Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Prénom </mat-header-cell>
           <mat-cell *matCellDef="let member"> {{member.firstname}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="lastname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Last Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Nom </mat-header-cell>
           <mat-cell *matCellDef="let member"> {{member.lastname}} </mat-cell>
         </ng-container>
 
@@ -47,13 +51,15 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
       </mat-table>
+      <mat-paginator [length]="groupFinest.members.length"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="pageSizesOption"
+                     [pageIndex]="pageIndex"
+                     showFirstLastButtons>
+      </mat-paginator>
     </div>
 
-    <mat-paginator [length]="groupFinest.members.length"
-                   [pageSize]="pageSize"
-                   [pageSizeOptions]="pageSizesOption"
-                   [pageIndex]="pageIndex"
-                   showFirstLastButtons>
-    </mat-paginator>
+  </div>
+  </div>
   </div>
 </div>

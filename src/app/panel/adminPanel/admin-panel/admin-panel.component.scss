@@ -7,18 +7,20 @@
 /* Content Panel , largeur du contentPanel , Couleur du background et centrer le contenu */
 .contentPanel {
   flex: 0 0 15%;
-  background-color: var(--gris);
+  background-color: var(--bleumoyen);
   padding: 10px;
   text-align: center;
 
   li{
     border-radius: 60px;
+
   }
+
 }
 
 /* Button , couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
 .button {
-  background-color: var(--bleufonce);
+  background-color: var(--blanc);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,13 +39,10 @@
 
     /* Visited state , couleur du texte lorsque le lien a déjà été visité*/
     &:visited {
-      color: var(--blanc);
+      color: var(--noir);
     }
 
-    /* Hover state couleur du texte lors d'un survol du lien */
-    &:hover {
-      color: var(--orangeclair);
-    }
+
   }
 
   /* Icon , taille , marge et animation */
@@ -51,12 +50,19 @@
     font-size: 24px;
     margin-right: 10px;
     transition: color 0.3s ease;
+    color: var(--noir);
+
   }
 
   /* Item Name , taille et animation */
   .itemName {
     font-size: 16px;
+    font-weight:500;
     transition: color 0.3s ease;
+    color: var(--noir);
+    &:hover {
+      color: var(--orangeclair);
+    }
   }
 }
 

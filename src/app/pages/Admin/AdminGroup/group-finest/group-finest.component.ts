@@ -78,7 +78,6 @@ export class GroupFinestComponent implements OnInit,OnDestroy {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
   }
 
 

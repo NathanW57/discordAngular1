@@ -9,8 +9,11 @@ p {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 100%;
-  background-color: var(--grisclair);
+  background-color: var(--blanc);
 
   .table-header {
     display: flex;
@@ -37,9 +40,12 @@ p {
       }
 
       mat-form-field {
-        width: 50%;
-        border-radius: 15px;
+        width: 100%;
+        border-radius: 40px;
         overflow: hidden;
+        background-color: var(--blanc);
+
+
 
         mat-icon {
           color: var(--orange);
@@ -54,7 +60,6 @@ p {
     overflow: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: var(--orange) var(--grisclair);
   }
 }
 
@@ -71,12 +76,12 @@ mat-cell {
   font-weight: normal;
   font-size: 18px;
   border: 1px solid var(--noir);
-  background-color: var(--grisclair);
+  background-color: var(--blanc);
   color: var(--noir);
 }
 
 mat-table {
-  background-color: var(--grismoyen);
+  background-color: var(--bleumoyen);
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -94,5 +99,28 @@ mat-table {
 }
 
 mat-paginator {
-  background-color: var(--grismoyen);
+  background-color: var(--bleumoyen);
+  width: 100%;
 }
+
+.secondContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--grisclair);
+  border-radius: 15px;
+  min-height: 90vh;
+  min-width: 90vh;
+  width: 90%;
+  height: 100%;
+}
+
+.placementSecondContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+

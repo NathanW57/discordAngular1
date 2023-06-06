@@ -44,6 +44,8 @@ import { AllUtilisateurComponent } from './pages/Admin/AdminUtilisateur/all-util
 import { DialogUtilisateurDeleteComponent } from './pages/Admin/AdminUtilisateur/dialog-utilisateur-delete/dialog-utilisateur-delete.component';
 import { AdminUserAccessAddingComponent } from './pages/Admin/AdminUtilisateur/AddingUser/admin-user-access-adding/admin-user-access-adding.component';
 import { AdminUserDialogAddingUserComponent } from './pages/Admin/AdminUtilisateur/AddingUser/admin-user-dialog-adding-user/admin-user-dialog-adding-user.component';
+import { AccessAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup/access-adding-group/access-adding-group.component';
+import { DialogAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup/dialog-adding-group/dialog-adding-group.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { AdminUserDialogAddingUserComponent } from './pages/Admin/AdminUtilisate
     AcessAddingUserComponent,
     AdminUserAccessAddingComponent,
     AdminUserDialogAddingUserComponent,
+    AccessAddingGroupComponent,
+    DialogAddingGroupComponent,
   ],
   imports: [
     BrowserModule,

@@ -51,27 +51,11 @@ const routes: Routes = [
           {
             path: ':id',
             component : GroupFinestComponent,
-            children : [
-              {
-                path : 'userUpdate',
-                component : UpdateUserComponent
-              },
-              {
-                path : 'accessAddUser',
-                component : AcessAddingUserComponent,
-                children : [
-                  {
-                    path : 'adduser',
-                    component : AddUserComponent
-                  }
-                ]
               }
             ]
           }
         ]
 
-      }
-    ]
   },
 
   {

@@ -1,0 +1,22 @@
+
+
+<div class="container-dialog">
+  <div class="container">
+    <form [formGroup]="formulaire">
+      <h1>Adding Group</h1>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Name is required</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Name must be at least 6 characters</mat-error>
+      </mat-form-field>
+
+
+      <div class="placementButton">
+        <button id="cancelButton" mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+        <button id="logIn" type="submit" mat-raised-button color="primary" (click)="validate()">Create</button>
+      </div>
+    </form>
+  </div>
+</div>

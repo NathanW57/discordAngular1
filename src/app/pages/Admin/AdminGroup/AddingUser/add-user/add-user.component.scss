@@ -20,10 +20,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   max-width: 45%; // Adjust as per your needs
   max-height: 80vh;
   min-height: 50vh; // Set a minimum height to keep the background visible even when the table is empty
-  overflow: auto;
 }
 
 .container-dialog mat-error {
@@ -65,5 +65,21 @@ button {
   font-size: 16px;
   margin-top: 10px; // Espacement entre le tableau et le bouton
   align-self: center; // Centre le bouton dans le conteneur
+}
+
+
+table{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  border-radius: 15px;
+  overflow: hidden;
+
+}
+
+button:hover {
+  background-color: var(--orangeclair);
+  color: var(--orange);
 }
 

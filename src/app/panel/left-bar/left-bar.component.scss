@@ -10,9 +10,11 @@
 
 .adminSection {
   margin-top: auto;
-  margin-bottom: 50px; /* Ajustez la valeur selon vos besoins */
+  margin-bottom: 30px;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
 
 }

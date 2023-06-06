@@ -1,0 +1,52 @@
+
+.container-dialog .container {
+  background-color: #3E4160;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-dialog h1 {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  border-bottom: 1.5px solid #FF9763;
+  font-family: "Arial Black", sans-serif;
+}
+
+.container-dialog #logIn,
+.container-dialog #cancelButton {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.container-dialog mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container-dialog mat-error {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #ff0033;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 14px;
+}
+
+.container-dialog .placementButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+#cancelButton{
+  background-color: red;
+}
+#logIn{
+  background-color: var(--orangeclair);
+}

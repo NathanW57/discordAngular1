@@ -17,7 +17,6 @@ export class AdminUserDialogAddingUserComponent {
   formulaire: FormGroup;
   errorComplete: boolean = false;
 
-  // @ts-ignore
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<AdminUserDialogAddingUserComponent>,
