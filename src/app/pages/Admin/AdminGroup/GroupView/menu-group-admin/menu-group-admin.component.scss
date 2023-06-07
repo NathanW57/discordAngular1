@@ -1,3 +1,9 @@
+.icon-button{
+  &:hover {
+    color: var(--color-accent);
+  }
+}
+
 .delete{
   color: red;
 }

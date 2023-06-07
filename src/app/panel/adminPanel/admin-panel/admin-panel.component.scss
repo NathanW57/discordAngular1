@@ -1,10 +1,10 @@
-/* Container , la dimension qu'il va prendre*/
+/*  la dimension qu'il va prendre*/
 .container {
   display: flex;
   height: 100%;
 }
 
-/* Content Panel , largeur du contentPanel , Couleur du background et centrer le contenu */
+/* largeur du contentPanel , Couleur du background et centrer le contenu */
 .contentPanel {
   flex: 0 0 15%;
   background-color: var(--bleumoyen);
@@ -18,7 +18,7 @@
 
 }
 
-/* Button , couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
+/* couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
 .button {
   background-color: var(--blanc);
   display: flex;
@@ -31,14 +31,14 @@
   margin-bottom: 10px;
   cursor: pointer;
 
-  /* Anchor , placement , et désactivation des text décoration */
+  /* placement , et désactivation des text décoration */
   a {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
 
-    /* Visited state , couleur du texte lorsque le lien a déjà été visité*/
+    /* couleur du texte lorsque le lien a déjà été visité*/
     &:visited {
       color: var(--noir);
     }

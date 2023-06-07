@@ -1,56 +1,52 @@
-<div class="container">
+<div class="container" xmlns:w="http://www.w3.org/1999/html">
   <div class="loading" *ngIf="isLoading">
     <mat-progress-spinner mode="indeterminate" class="custom-spinner"></mat-progress-spinner>
   </div>
 
-  <div *ngIf="groupFinest">
-
-
-    <div class="placementSecondContainer">
-
-
-
+  <div *ngIf="groupFinest" class="placementSecondContainer">
     <div class="secondContainer">
-
-
-    <div class="table-header">
-
-      <div class="filter-field">
-        <h3>Membres</h3>
-        <mat-form-field appearance="fill">
-          <mat-label>Recherche</mat-label>
-          <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
-          <mat-icon matSuffix color="warn">search</mat-icon>
-        </mat-form-field>
+      <div class="header-section">
+        <div class="filter-field">
+          <h3>Membres</h3>
+          <mat-form-field appearance="fill">
+            <mat-label>Recherche</mat-label>
+            <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
+            <mat-icon matSuffix color="accent">search</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="menu-and-add">
+          <app-menu-group-admin></app-menu-group-admin>
+          <app-acess-adding-user [groupId]="groupFinest.id"></app-acess-adding-user>
+        </div>
       </div>
-    </div>
 
-    <div class="scroll">
-      <mat-table [dataSource]="dataSource" matSort>
-        <ng-container matColumnDef="firstname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Prénom </mat-header-cell>
-          <mat-cell *matCellDef="let member"> {{member.firstname}} </mat-cell>
-        </ng-container>
+      <div class="scroll">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="firstname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Prénom </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.firstname}} </mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="lastname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Nom </mat-header-cell>
-          <mat-cell *matCellDef="let member"> {{member.lastname}} </mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="lastname">
+            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Nom </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.lastname}} </mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="email">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </mat-header-cell>
-          <mat-cell *matCellDef="let member"> {{member.email}} </mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by email"> Email </mat-header-cell>
+            <mat-cell *matCellDef="let member"> {{member.email}} </mat-cell>
+          </ng-container>
 
-        <ng-container matColumnDef="action">
-          <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-          <mat-cell *matCellDef="let member"> <app-access-delete-user [userId]="member.id" [groupIdTwo]="groupFinest.id"></app-access-delete-user> </mat-cell>
-        </ng-container>
+          <ng-container matColumnDef="action">
+            <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+            <mat-cell *matCellDef="let member"> <app-access-delete-user [userId]="member.id" [groupIdTwo]="groupFinest.id"></app-access-delete-user> </mat-cell>
+          </ng-container>
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
 
-      </mat-table>
       <mat-paginator [length]="groupFinest.members.length"
                      [pageSize]="pageSize"
                      [pageSizeOptions]="pageSizesOption"
@@ -58,8 +54,5 @@
                      showFirstLastButtons>
       </mat-paginator>
     </div>
-
-  </div>
-  </div>
   </div>
 </div>

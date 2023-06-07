@@ -41,7 +41,7 @@ export class GroupFinestComponent implements OnInit,OnDestroy {
     private route: ActivatedRoute
   ) { }
 
-  pageSizesOption = [2,4,6,8,10,25,50,100];
+  pageSizesOption = [2,4,6,8,10];
   pageSize = 10;
   pageIndex = 0;
 
