@@ -12,7 +12,7 @@
   text-align: center;
 
   li{
-    border-radius: 60px;
+    border-radius: 10px;
 
   }
 
@@ -24,8 +24,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  border: 1px solid #818296;
+  padding: 20px;
+  border: 1px solid var(--noir);
+  box-shadow: 5px 2px 2px var(--noir);
   border-radius: 4px;
   margin-bottom: 10px;
   cursor: pointer;
