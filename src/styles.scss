@@ -1,7 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/theming';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$primary-palette: (
+  900: #151B36,
+  800: #151B36,
+  700: #151B36,
+  600: #151B36,
+  500: #151B36,
+  400: #151B36,
+  300: #151B36,
+  200: #151B36,
+  100: #151B36,
+  50: #151B36,
+  contrast: (
+    900: #151B36,
+    800: #151B36,
+    700: #151B36,
+    600: #151B36,
+    500: #151B36,
+    400: #151B36,
+    300: #151B36,
+    200: #151B36,
+    100: #151B36,
+    50: #151B36
+  )
+);
+
+$accent-palette: (
+  900: #FF9763,
+  800: #FF9763,
+  700: #FF9763,
+  600: #FF9763,
+  500: #FF9763,
+  400: #FF9763,
+  300: #FF9763,
+  200: #FF9763,
+  100: #FF9763,
+  50:  #FF9763,
+  contrast: (
+    900: #ED6636,
+    800: #ED6636,
+    700: #ED6636,
+    600: #ED6636,
+    500: #ED6636,
+    400: #ED6636,
+    300: #ED6636,
+    200: #ED6636,
+    100: #ED6636,
+    50:  #ED6636,
+  )
+);
+
+$mns-app-primary: mat.define-palette($primary-palette, 500, 200, 800, 50);
+$mns-app-accent:  mat.define-palette(mat.$orange-palette, 400, 200, 800, 400);
+$mns-app-error: mat.define-palette(mat.$red-palette);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$alert-mns-theme: mat.define-light-theme($mns-app-primary, $mns-app-accent, $mns-app-error);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($alert-mns-theme);
+
+$primary: map-get($alert-mns-theme, primary);
+$accent: map-get($alert-mns-theme, accent);
+$warn: map-get($alert-mns-theme, warn);
+
+
+:root {
+  --color-primary-lightest: #818296;
+  --color-primary-light: #3E4160;
+  --color-primary: #151B36;
+  --color-primary-dark: #000011;
+  --color-accent-light: #FF9763;
+  --color-accent: #ED6636;
+  --color-warn: #{mat-color($warn)};
+  --color-neutral: #CACACA;
+  --color-neutral-light: #D9D9D9;
+  --color-white: #FFFFFF;
+  --color-on-neutral: #000000;
+}
+
+// GLOBAL STYLES
+
+.content-card {
+  border-radius: 7px;
+  background-color: var(--color-white)
+}
+
+.cdk-overlay-pane {
+  min-width: 20vw;
+}
+
+//@media (max-width: 900px) {
+//  .cdk-overlay-pane {
+//    width: 100vw;
+//  }
+//}
+
 
 :root {
   --orangeclair: #FF9763;
@@ -13,4 +120,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --bleumoyen: #3E4160;
   --grisfoncé: #818296;
 }
+
 

@@ -1,10 +1,10 @@
 h2, h3 {
-  color: var(--bleufonce);
+  color: var(--color-primary);
   font-family: "Arial Black", sans-serif;
 }
 
 p {
-  color: var(--noir);
+  color: var(--color-primary-dark);
   font-size: 18px;
 }
 
@@ -13,7 +13,7 @@ p {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  background-color: var(--blanc);
+  background-color: var(--color-white);
 
   .table-header {
     display: flex;
@@ -24,7 +24,7 @@ p {
       display: flex;
 
       button {
-        color: var(--orange);
+        color: var(--color-accent);
       }
     }
 
@@ -43,14 +43,9 @@ p {
         width: 100%;
         border-radius: 40px;
         overflow: hidden;
-        background-color: var(--blanc);
+        background-color: var(--color-white);
 
 
-
-        mat-icon {
-          color: var(--orange);
-          font-size: 25px;
-        }
       }
     }
   }
@@ -68,20 +63,20 @@ mat-header-cell {
   font-weight: bold;
   font-family: "Arial Black", sans-serif;
   font-size: 18px;
-  border: 1px solid var(--noir);
-  background-color: var(--bleufonce);
+  border: 1px solid var(--color-primary-dark);
+  background-color: var(--color-primary);
 }
 
 mat-cell {
   font-weight: normal;
   font-size: 18px;
-  border: 1px solid var(--noir);
-  background-color: var(--blanc);
-  color: var(--noir);
+  border: 1px solid var(--color-primary-dark);
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
 }
 
 mat-table {
-  background-color: var(--bleumoyen);
+  background-color: var(--color-primary-light);
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -95,11 +90,11 @@ mat-table {
 }
 
 :host ::ng-deep .custom-spinner circle {
-  stroke: var(--orange);
+  stroke: var(--color-accent);
 }
 
 mat-paginator {
-  background-color: var(--bleumoyen);
+  background-color: var(--color-primary-light);
   width: 100%;
 }
 
@@ -108,7 +103,7 @@ mat-paginator {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--grisclair);
+  background: var(--color-neutral);
   border-radius: 15px;
   min-height: 90vh;
   min-width: 90vh;

@@ -3,7 +3,7 @@ import {GroupFinest} from "../../../../../model/GroupFinest";
 import {DialogDeleteUserComponent} from "../dialog-delete-user/dialog-delete-user.component";
 import {MatDialog} from "@angular/material/dialog";
 import {UserService} from "../../../../../service/user.service";
-import {GroupFinestService} from "../../../../../service/group-finest.service";
+import {GroupFinestService} from "../../../../../service/GroupService/group-finest.service";
 import {User} from "../../../../../model/User";
 
 @Component({

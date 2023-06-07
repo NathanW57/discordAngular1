@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {GroupService} from "../../../../../service/group.service";
+import {GroupService} from "../../../../../service/GroupService/group.service";
 import {MatDialog} from "@angular/material/dialog";
 import {GroupFinest} from "../../../../../model/GroupFinest";
 import {AddUserComponent} from "../add-user/add-user.component";

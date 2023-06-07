@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Group } from "../../../../model/Group";
+import { Group } from "../../../../../model/Group";
 import { MatTableDataSource } from "@angular/material/table";
-import { GroupService } from "../../../../service/group.service";
+import { GroupService } from "../../../../../service/GroupService/group.service";
 import {Subscription} from "rxjs";
 
 @Component({

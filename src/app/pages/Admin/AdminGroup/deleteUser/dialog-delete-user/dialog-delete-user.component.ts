@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {User} from "../../../../../model/User";
-import {GroupFinestService} from "../../../../../service/group-finest.service";
+import {GroupFinestService} from "../../../../../service/GroupService/group-finest.service";
 
 @Component({
   selector: 'app-dialog-delete-user',

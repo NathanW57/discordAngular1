@@ -9,7 +9,7 @@
         <mat-label>Name</mat-label>
         <input matInput type="text" formControlName="name" (keyup)="errorComplete = false">
         <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Name is required</mat-error>
-        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Name must be at least 6 characters</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Name must be at least 2 characters</mat-error>
       </mat-form-field>
 
 

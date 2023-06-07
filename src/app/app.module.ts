@@ -19,14 +19,14 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { TopBarComponent } from './panel/top-bar/top-bar.component';
 import { LeftBarComponent } from './panel/left-bar/left-bar.component';
 import { AdminPanelComponent } from './panel/adminPanel/admin-panel/admin-panel.component';
-import { GroupComponent } from './pages/Admin/AdminGroup/group/group.component';
+import { GroupComponent } from './pages/Admin/AdminGroup/GroupView/group/group.component';
 import {MatTableModule} from "@angular/material/table";
 import { LogOutComponent } from './component/log-out/log-out.component';
 import { MenuComponent } from './panel/menu/menu.component';
 import {MatMenuModule} from "@angular/material/menu";
-import { GroupFinestComponent } from './pages/Admin/AdminGroup/group-finest/group-finest.component';
+import { GroupFinestComponent } from './pages/Admin/AdminGroup/GroupView/group-finest/group-finest.component';
 import { AcessAdminComponent } from './panel/adminPanel/acess-admin/acess-admin.component';
-import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/menu-group-admin/menu-group-admin.component';
+import { MenuGroupAdminComponent } from './pages/Admin/AdminGroup/GroupView/menu-group-admin/menu-group-admin.component';
 import { UpdateUserComponent } from './pages/Admin/AdminUtilisateur/update-user/update-user.component';
 import {MatListModule} from "@angular/material/list";
 import { UpdateUserPipe } from './pipe/update-user.pipe';

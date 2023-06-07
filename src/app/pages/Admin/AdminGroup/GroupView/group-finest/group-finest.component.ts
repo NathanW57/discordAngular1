@@ -1,10 +1,10 @@
 import {Component, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GroupFinest } from "../../../../model/GroupFinest";
-import { GroupFinestService } from "../../../../service/group-finest.service";
+import { GroupFinest } from "../../../../../model/GroupFinest";
+import { GroupFinestService } from "../../../../../service/GroupService/group-finest.service";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatTableDataSource} from "@angular/material/table";
-import {UserGroupFinest} from "../../../../model/UserGroupFinest";
+import {UserGroupFinest} from "../../../../../model/UserGroupFinest";
 import {MatSort} from "@angular/material/sort";
 import {Subscription} from "rxjs";
 

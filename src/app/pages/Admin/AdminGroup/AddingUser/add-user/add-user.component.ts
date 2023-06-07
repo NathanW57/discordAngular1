@@ -3,7 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {UserGroupFinest} from "../../../../../model/UserGroupFinest";
-import {GroupFinestService} from "../../../../../service/group-finest.service";
+import {GroupFinestService} from "../../../../../service/GroupService/group-finest.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({

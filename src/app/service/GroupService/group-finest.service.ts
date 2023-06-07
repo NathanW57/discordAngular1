@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {BehaviorSubject, Observable, Subject, tap} from "rxjs";
-import { GroupFinest } from "../model/GroupFinest";
-import { environnement } from "../environnements/Environnement";
-import {Group} from "../model/Group";
+import { GroupFinest } from "../../model/GroupFinest";
+import { environnement } from "../../environnements/Environnement";
+import {Group} from "../../model/Group";
 import {GroupService} from "./group.service";
-import {UserGroupFinest} from "../model/UserGroupFinest";
+import {UserGroupFinest} from "../../model/UserGroupFinest";
 
 @Injectable({
   providedIn: 'root'

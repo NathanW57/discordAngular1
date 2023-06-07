@@ -5,7 +5,7 @@ import {UserGroupFinest} from "../../../../model/UserGroupFinest";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {Subject, Subscription, takeUntil} from "rxjs";
-import {GroupFinestService} from "../../../../service/group-finest.service";
+import {GroupFinestService} from "../../../../service/GroupService/group-finest.service";
 import {ActivatedRoute} from "@angular/router";
 import {UserService} from "../../../../service/user.service";
 import {User} from "../../../../model/User";

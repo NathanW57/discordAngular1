@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MatDialogRef} from "@angular/material/dialog";
 import {User} from "../../../../../model/User";
-import {GroupService} from "../../../../../service/group.service";
+import {GroupService} from "../../../../../service/GroupService/group.service";
 import {Group} from "../../../../../model/Group";
 
 @Component({
@@ -21,7 +21,7 @@ export class DialogAddingGroupComponent {
     private groupService: GroupService,
   ) {
     this.formulaire = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.minLength(6)]]
+      name: ["", [Validators.required, Validators.minLength(2)]]
     });
 
 
