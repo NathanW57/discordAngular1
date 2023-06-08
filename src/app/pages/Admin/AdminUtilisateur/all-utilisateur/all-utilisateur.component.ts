@@ -53,36 +53,22 @@ export class AllUtilisateurComponent implements OnInit, OnDestroy {
 
 
 
-  //Lorsque le composant est initialisé, on récupère les données
   ngOnInit(): void {
-    this.userService.getAllUser()
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(users => {
-        this.dataSource.data = users;
-      });
+    this.getUsers();
 
-    // lors d'un ajout d'un utilisateur remettre à jour la liste
-    this.userAdded = this.userService.userAdded
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(() => {
-        this.userService.getAllUser()
-          .pipe(takeUntil(this.unsubscribe$))
-          .subscribe(users => {
-            this.dataSource.data = users;
-          });
-      });
+    this.userService.userAdded.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
+      this.getUsers();  // Faire une nouvelle requête HTTP après chaque ajout d'utilisateur
+    });
 
-    // lors d'une suppression d'un utilisateur remettre à jour la liste
-    this.userDeleted = this.userService.userDeleted
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(() => {
-        this.userService.getAllUser()
-          .pipe(takeUntil(this.unsubscribe$))
-          .subscribe(users => {
-            this.dataSource.data = users;
-          });
-      }
-    );
+    this.userService.userDeleted.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
+      this.getUsers();  // Faire une nouvelle requête HTTP après chaque suppression d'utilisateur
+    });
+  }
+
+  private getUsers() {
+    this.userService.getAllUser().pipe(takeUntil(this.unsubscribe$)).subscribe(users => {
+      this.dataSource.data = users;
+    });
   }
 
 

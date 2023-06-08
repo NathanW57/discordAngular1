@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {environnement} from "../environnements/Environnement";
 import {User} from "../model/User";
-import {BehaviorSubject, Observable, Subject, tap} from "rxjs";
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {GroupFinest} from "../model/GroupFinest";
-import {Group} from "../model/Group";
+import {BehaviorSubject, catchError, Observable, Subject, tap, throwError} from "rxjs";
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {UserGroupFinest} from "../model/UserGroupFinest";
 
 @Injectable({
@@ -23,24 +21,21 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserById(id: number | undefined): Observable<User> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.get<User>(`${environnement.serveurUrl}userFinest/${id}`, { headers });
+    return this.http.get<User>(`${environnement.serveurUrl}userFinest/${id}`);
   }
 
 
 
   public getAllUser(): Observable<UserGroupFinest[]> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.get<UserGroupFinest[]>(`${environnement.serveurUrl}users`, { headers });
+    return this.http.get<UserGroupFinest[]>(`${environnement.serveurUrl}users`).pipe(
+      catchError(this.handleError)
+    );
   }
 
 
+
   public userDeleteById(id: number | undefined): Observable<User> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.delete<User>(`${environnement.serveurUrl}user/${id}`, { headers }).pipe(
+    return this.http.delete<User>(`${environnement.serveurUrl}user/${id}`).pipe(
       tap(() => {
         this.userDeleted.next(); // Emit an event to say that a user was deleted
       }
@@ -48,12 +43,26 @@ export class UserService {
   }
 
   public addingUser(user: User): Observable<User> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
-    return this.http.post<User>(`${environnement.serveurUrl}users`, user, { headers }).pipe(
+    return this.http.post<User>(`${environnement.serveurUrl}users`, user).pipe(
       tap(() => {
         this.userAdded.next(); // Emit an event to say that a user was added
       })
     );
   }
+
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // Une erreur côté client ou un problème de réseau. Traitez-le en conséquence.
+      console.error('Une erreur est survenue :', error.error.message);
+    } else {
+      // Le serveur a renvoyé un code de statut d'échec.
+      console.error(
+        `Le serveur a renvoyé le code d'état ${error.status}, ` +
+        `corps de la réponse: ${error.error}`);
+    }
+    // Retourner un observable avec un message d'erreur orienté utilisateur
+    return throwError('Quelque chose a mal tourné, veuillez réessayer plus tard.');
+  }
+
 }

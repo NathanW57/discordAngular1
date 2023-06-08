@@ -6,21 +6,11 @@ import {UserGuard} from "./guards/user.guard";
 import {Error404Component} from "./pages/error404/error404.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import {GroupComponent} from "./pages/Admin/AdminGroup/GroupView/group/group.component";
-import {LogOutComponent} from "./component/log-out/log-out.component";
 import {GroupFinestComponent} from "./pages/Admin/AdminGroup/GroupView/group-finest/group-finest.component";
-import {AcessAdminComponent} from "./panel/adminPanel/acess-admin/acess-admin.component";
 import {AuthentificationGuard} from "./guards/authentification.guard";
 import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
-import {UpdateUserComponent} from "./pages/Admin/AdminUtilisateur/update-user/update-user.component";
-import {AddUserComponent} from "./pages/Admin/AdminGroup/AddingUser/add-user/add-user.component";
-import {
-  AcessAddingUserComponent
-} from "./pages/Admin/AdminGroup/AddingUser/acess-adding-user/acess-adding-user.component";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
-import {
-  DialogUtilisateurDeleteComponent
-} from "./pages/Admin/AdminUtilisateur/dialog-utilisateur-delete/dialog-utilisateur-delete.component";
 
 const routes: Routes = [
 

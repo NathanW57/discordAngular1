@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
@@ -48,6 +48,7 @@ import { AccessAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup
 import { DialogAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup/dialog-adding-group/dialog-adding-group.component';
 import { DeletingGroupComponent } from './pages/Admin/AdminGroup/deleting-group/deleting-group.component';
 import { UpdatingGroupComponent } from './pages/Admin/AdminGroup/updating-group/updating-group.component';
+import {JwtInterceptor} from "./service/jwt.interceptor";
 
 @NgModule({
   declarations: [
@@ -104,7 +105,9 @@ import { UpdatingGroupComponent } from './pages/Admin/AdminGroup/updating-group/
     MatSortModule,
     MatProgressSpinnerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
