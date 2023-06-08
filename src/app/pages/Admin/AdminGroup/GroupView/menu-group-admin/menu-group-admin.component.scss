@@ -1,3 +1,4 @@
+
 .icon-button{
   &:hover {
     color: var(--color-accent);
@@ -10,4 +11,9 @@
 
 .update{
   color: #0893d8;
+}
+
+div{
+  background-color: var(--color-neutral);
+  border-radius: 25px;
 }

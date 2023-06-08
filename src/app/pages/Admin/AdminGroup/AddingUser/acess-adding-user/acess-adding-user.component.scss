@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 25px;
   color: var(--color-primary-dark);
   font-size: 15px;
   font-weight: bold;
@@ -14,4 +14,9 @@
     color: var(--color-accent);
   }
 
+}
+
+div{
+  background-color: var(--color-neutral);
+  border-radius: 25px;
 }

@@ -6,6 +6,10 @@ import { UpdateUserComponent } from "../../../AdminUtilisateur/update-user/updat
 import {DialogDeleteUserComponent} from "../../deleteUser/dialog-delete-user/dialog-delete-user.component";
 import {GroupFinestService} from "../../../../../service/GroupService/group-finest.service";
 import {GroupFinest} from "../../../../../model/GroupFinest";
+import {DeletingGroupComponent} from "../../deleting-group/deleting-group.component";
+import {GroupService} from "../../../../../service/GroupService/group.service";
+import {Group} from "../../../../../model/Group";
+import {UpdatingGroupComponent} from "../../updating-group/updating-group.component";
 
 @Component({
   selector: 'app-menu-group-admin',
@@ -13,25 +17,23 @@ import {GroupFinest} from "../../../../../model/GroupFinest";
   styleUrls: ['./menu-group-admin.component.scss']
 })
 export class MenuGroupAdminComponent {
-  @Input() userId: number | undefined;
-
-
   @Input() groupIdTwo: number | undefined;
 
 
 
   constructor(
     private dialog: MatDialog,
-    private userService: UserService,
-    private groupService : GroupFinestService
+    private groupService : GroupFinestService,
+    private groupServiceOne : GroupService,
   ) {}
 
-  openUserUpdateDialog(): void {
-    this.userService.getUserById(this.userId).subscribe(
-      (user: User) => {
-        const dialogRef = this.dialog.open(UpdateUserComponent, {
-          width: '800px',
-          data: user
+  openGroupUpdateDialog(): void {
+    this.groupService.getGroupById(this.groupIdTwo).subscribe(
+      (group: GroupFinest) => {
+        const dialogRef = this.dialog.open(UpdatingGroupComponent, {
+          width: '300px',
+          height: '250px',
+          data: group
         });
       },
       (error) => {
@@ -40,11 +42,11 @@ export class MenuGroupAdminComponent {
     );
   }
 
-  openDeleteUserUpdateDialog(): void {
-    this.groupService.getGroupIdAndUserId(1,this.userId).subscribe(
+  openDeleteUserDialog(): void {
+    this.groupService.getGroupById(this.groupIdTwo).subscribe(
       (group: GroupFinest) => {
-        const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
-          width: '600px',
+        const dialogRef = this.dialog.open(DeletingGroupComponent, {
+          width: '300px',
           data: group
         });
       },

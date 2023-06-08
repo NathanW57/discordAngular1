@@ -46,6 +46,8 @@ import { AdminUserAccessAddingComponent } from './pages/Admin/AdminUtilisateur/A
 import { AdminUserDialogAddingUserComponent } from './pages/Admin/AdminUtilisateur/AddingUser/admin-user-dialog-adding-user/admin-user-dialog-adding-user.component';
 import { AccessAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup/access-adding-group/access-adding-group.component';
 import { DialogAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup/dialog-adding-group/dialog-adding-group.component';
+import { DeletingGroupComponent } from './pages/Admin/AdminGroup/deleting-group/deleting-group.component';
+import { UpdatingGroupComponent } from './pages/Admin/AdminGroup/updating-group/updating-group.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { DialogAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup
     AdminUserDialogAddingUserComponent,
     AccessAddingGroupComponent,
     DialogAddingGroupComponent,
+    DeletingGroupComponent,
+    UpdatingGroupComponent,
   ],
   imports: [
     BrowserModule,

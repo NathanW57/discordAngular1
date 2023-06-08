@@ -1,13 +1,11 @@
 <div class="container">
   <div class="contentPanel">
-    <ul>
       <li *ngFor="let item of items" class="button">
         <a [routerLink]="item.link">
           <mat-icon class="icon">{{ item.icon }}</mat-icon>
           <span class="itemName">{{ item.name }}</span>
         </a>
       </li>
-    </ul>
   </div>
   <div class="contentArea">
     <router-outlet></router-outlet>

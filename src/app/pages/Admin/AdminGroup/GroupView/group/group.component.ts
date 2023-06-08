@@ -16,6 +16,8 @@ export class GroupComponent implements OnInit {
 
   private groupAdded: Subscription | undefined;
 
+  private groupDeleted : Subscription | undefined;
+
   constructor(private serviceGroup: GroupService) {
     this.dataSource = new MatTableDataSource<Group>([]);
   }
@@ -27,6 +29,11 @@ export class GroupComponent implements OnInit {
     });
 
     this.groupAdded = this.serviceGroup.groupAdded.subscribe(() => {
+      this.serviceGroup.getAllGroups();
+    }
+    );
+
+    this.groupDeleted = this.serviceGroup.deletedGroup.subscribe(() => {
       this.serviceGroup.getAllGroups();
     }
     );

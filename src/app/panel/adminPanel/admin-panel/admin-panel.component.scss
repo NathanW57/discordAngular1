@@ -7,7 +7,7 @@
 /* largeur du contentPanel , Couleur du background et centrer le contenu */
 .contentPanel {
   flex: 0 0 15%;
-  background-color: var(--bleumoyen);
+  background-color: var(--color-primary-light);
   padding: 10px;
   text-align: center;
 
@@ -20,13 +20,13 @@
 
 /* couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
 .button {
-  background-color: var(--blanc);
+  background-color: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  border: 1px solid var(--noir);
-  box-shadow: 5px 2px 2px var(--noir);
+  border: 1px solid var(--color-primary-dark);
+  box-shadow: 5px 2px 2px var(--color-primary-dark);
   border-radius: 4px;
   margin-bottom: 10px;
   cursor: pointer;
@@ -40,7 +40,7 @@
 
     /* couleur du texte lorsque le lien a déjà été visité*/
     &:visited {
-      color: var(--noir);
+      color: var(--color-primary-dark);
     }
 
 
@@ -51,7 +51,7 @@
     font-size: 24px;
     margin-right: 10px;
     transition: color 0.3s ease;
-    color: var(--noir);
+    color: var(--color-primary-dark);
 
   }
 
@@ -60,9 +60,9 @@
     font-size: 16px;
     font-weight:500;
     transition: color 0.3s ease;
-    color: var(--noir);
+    color: var(--color-primary-dark);
     &:hover {
-      color: var(--orangeclair);
+      color: var(--color-accent-light);
     }
   }
 }
@@ -70,5 +70,5 @@
 /* Content Area , l'espace qu'il va occuper ,couleur du background et l'espacement intérieur */
 .contentArea {
   flex: 1;
-  background-color: #FFFFFF;
+  background-color: var(--color-white);
 }

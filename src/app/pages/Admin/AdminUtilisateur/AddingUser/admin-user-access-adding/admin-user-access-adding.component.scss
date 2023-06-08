@@ -1,23 +1,22 @@
-mat-icon{
-  font-size: 40px;
+.icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  border-radius: 25px;
+  color: var(--color-primary-dark);
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
 
-.areaDiv{
-  width: 100%;
-  height: 100%;
-}
-
-.addingUser{
-  color: var(--noir);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover{
+  &:hover {
     color: var(--color-accent);
   }
+
+}
+
+div{
+  background-color: var(--color-neutral);
+  border-radius: 25px;
 }

@@ -14,7 +14,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  transition: color 0.3s ease;
+
+  &:hover{
+    color: var(--color-accent-light);
+  }
+
 
   mat-icon {
     font-size: 40px;

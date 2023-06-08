@@ -20,7 +20,7 @@ export class GroupFinestService {
   memberDeleted = new Subject<void>();
 
 
-  getGroupById(groupId: number): Observable<GroupFinest> {
+  getGroupById(groupId: number | undefined): Observable<GroupFinest> {
     const jwt = localStorage.getItem('jwt');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
     return this.http.get<GroupFinest>(`${environnement.serveurUrl}group/${groupId}`, { headers });
