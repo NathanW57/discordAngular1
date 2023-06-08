@@ -41,7 +41,7 @@ export class MenuUtilisateurComponent {
     this.userService.getUserById(this.userId).subscribe(
       (user: User) => {
         const dialogRef = this.dialog.open(DialogUtilisateurDeleteComponent, {
-          width: '600px',
+          width: '400px',
           data: user
         });
       },

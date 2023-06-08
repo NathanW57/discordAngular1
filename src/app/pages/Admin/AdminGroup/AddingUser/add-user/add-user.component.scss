@@ -1,29 +1,28 @@
 .container-dialog {
   display: flex;
-  flex-direction: row; // Change from 'column' to 'row'
-  align-items: flex-start; // Aligns the tables at the top
-  justify-content: space-between; // Adds space between the tables
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   height: 100%;
   width: 100%;
-  gap: 20px; // Adds space between the containers
+  gap: 20px;
 }
 
 .container th{
-  color: var(--orange);
+  color: var(--color-accent);
 }
 
 .container-dialog .container {
-  background-color: #3E4160;
-  border-radius: 15px;
+  background-color: var(--color-primary-light);
   padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  max-width: 45%; // Adjust as per your needs
+  max-width: 45%;
   max-height: 80vh;
-  min-height: 50vh; // Set a minimum height to keep the background visible even when the table is empty
+  min-height: 50vh;
 }
 
 .container-dialog mat-error {
@@ -43,9 +42,8 @@
 }
 
 mat-paginator{
-  background-color: var(--orangeclair);
-  color: white;
-  border-radius: 15px;
+  background-color: var(--color-accent-light);
+  color: var(--color-white);
   height: 6%;
   width: 100%;
   margin-top: 10px;
@@ -58,9 +56,8 @@ mat-paginator{
 }
 
 button {
-  color: white;
-  background-color: var(--orange);
-  border-radius: 15px;
+  color: var(--color-white);
+  background-color: var(--color-accent);
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 10px; // Espacement entre le tableau et le bouton
@@ -69,17 +66,17 @@ button {
 
 
 table{
+  background-color: var(--color-neutral-light);
   width: 100%;
   display: flex;
   flex-direction: column;
   border-collapse: collapse;
-  border-radius: 15px;
   overflow: hidden;
 
 }
 
 button:hover {
-  background-color: var(--orangeclair);
-  color: var(--orange);
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
 }
 

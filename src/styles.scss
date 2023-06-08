@@ -94,14 +94,6 @@ $warn: map-get($alert-mns-theme, warn);
 
 // GLOBAL STYLES
 
-.content-card {
-  border-radius: 7px;
-  background-color: var(--color-white)
-}
-
-.cdk-overlay-pane {
-  min-width: 20vw;
-}
 
 //@media (max-width: 900px) {
 //  .cdk-overlay-pane {

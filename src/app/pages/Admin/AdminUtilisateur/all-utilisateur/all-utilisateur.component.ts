@@ -42,8 +42,8 @@ export class AllUtilisateurComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  pageSizesOption = [2,4,6,8,10,25,50,100];
-  pageSize = 10;
+  pageSizesOption = [2,4,6,8,10];
+  pageSize = 8;
   pageIndex = 0;
 
 

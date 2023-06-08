@@ -1,27 +1,30 @@
 <div class="container">
+
   <div class="loading" *ngIf="isLoading">
     <mat-progress-spinner mode="indeterminate" class="custom-spinner"></mat-progress-spinner>
   </div>
 
-  <div>
 
-
-    <div class="table-header">
-      <div class="add-user">
-      </div>
-
-      <div class="filter-field">
-        <h3>Users</h3>
-        <mat-form-field appearance="fill">
-          <mat-label>Search</mat-label>
-          <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
-          <mat-icon matSuffix>search</mat-icon>
-        </mat-form-field>
-      </div>
-      <app-admin-user-access-adding></app-admin-user-access-adding>
-    </div>
 
     <div class="scroll">
+
+      <div class="globalContainer">
+      <div class="colorBackGround">
+
+        <div class="table-header">
+
+          <div class="filter-field">
+            <h3>Users</h3>
+            <mat-form-field appearance="fill">
+              <mat-label>Search</mat-label>
+              <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
+              <mat-icon matSuffix color="warn">search</mat-icon>
+            </mat-form-field>
+          </div>
+          <app-admin-user-access-adding></app-admin-user-access-adding>
+        </div>
+
+
       <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="firstname">
           <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> First Name </mat-header-cell>
@@ -47,6 +50,8 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
       </mat-table>
+      </div>
+      </div>
     </div>
 
     <mat-paginator
@@ -56,4 +61,3 @@
                    showFirstLastButtons>
     </mat-paginator>
   </div>
-</div>

@@ -15,7 +15,6 @@
 
 .container{
   background-color: var(--color-primary-light);
-  border-radius: 15px;
   padding: 20px;
   flex: 1;
   display: flex;
@@ -25,5 +24,9 @@
   h1{
     color: white;
     text-align: center;
+  }
+
+  strong{
+    color: var(--color-accent-light);
   }
 }

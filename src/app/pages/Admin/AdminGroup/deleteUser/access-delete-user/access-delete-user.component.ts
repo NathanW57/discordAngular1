@@ -29,7 +29,7 @@ export class AccessDeleteUserComponent {
           this.groupService.getGroupIdAndUserId(this.groupIdTwo, this.userId).subscribe(
             (group: GroupFinest) => {
               const dialogRef = this.dialog.open(DialogDeleteUserComponent, {
-                width: '600px',
+                width: '400px',
                 data: {user: user, groupId: this.groupIdTwo}
               });
             },

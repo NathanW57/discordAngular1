@@ -1,60 +1,64 @@
 h2, h3 {
-  color: var(--bleufonce);
+  color: var(--color-primary);
   font-family: "Arial Black", sans-serif;
 }
 
 p {
-  color: var(--noir);
+  color: var(--color-primary-dark);
   font-size: 18px;
 }
 
 .container {
   height: 100%;
-  background-color: var(--grisclair);
 
-  .table-header {
+
+  .table-header{
+    max-height: 100%;
+    max-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    .add-user {
-      display: flex;
-
-      button {
-        color: var(--orange);
-      }
-    }
 
     .filter-field {
       flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      h3 {
-        margin-bottom: 10px;
-      }
+      max-width: 300px;
 
       mat-form-field {
-        width: 50%;
-        border-radius: 15px;
-        overflow: hidden;
 
         mat-icon {
-          color: var(--orange);
+          color: var(--color-accent);
           font-size: 25px;
         }
       }
     }
   }
+  .table-header{
+    max-height: 100%;
+    padding: 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
+  }
   .scroll {
-    max-height: 70vh;
+    max-height: 90vh;
     overflow: auto;
     overflow-x: hidden;
     scrollbar-width: thin;
-    scrollbar-color: var(--orange) var(--grisclair);
+    scrollbar-color: var(--color-accent) var(--color-neutral);
+
+
+    .globalContainer{
+      padding: 20px;
+    }
+    .colorBackGround{
+      padding: 20px;
+      border-radius: 5px;
+      background-color: var(--color-neutral-light);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
@@ -63,20 +67,17 @@ mat-header-cell {
   font-weight: bold;
   font-family: "Arial Black", sans-serif;
   font-size: 18px;
-  border: 1px solid var(--noir);
-  background-color: var(--bleufonce);
 }
 
 mat-cell {
   font-weight: normal;
   font-size: 18px;
-  border: 1px solid var(--noir);
-  background-color: var(--grisclair);
-  color: var(--noir);
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
 }
 
 mat-table {
-  background-color: var(--grismoyen);
+  background-color: var(--color-white);
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
@@ -89,10 +90,12 @@ mat-table {
   flex-direction: column;
 }
 
+
+
+
+
 :host ::ng-deep .custom-spinner circle {
-  stroke: var(--orange);
+  stroke: var(--color-accent);
 }
 
-mat-paginator {
-  background-color: var(--grismoyen);
-}
+
