@@ -49,6 +49,8 @@ import { DialogAddingGroupComponent } from './pages/Admin/AdminGroup/AddingGroup
 import { DeletingGroupComponent } from './pages/Admin/AdminGroup/deleting-group/deleting-group.component';
 import { UpdatingGroupComponent } from './pages/Admin/AdminGroup/updating-group/updating-group.component';
 import {JwtInterceptor} from "./service/jwt.interceptor";
+import { ChatComponent } from './pages/Chatting/chat/chat.component';
+import { AccessChatComponent } from './pages/Chatting/access-chat/access-chat.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,8 @@ import {JwtInterceptor} from "./service/jwt.interceptor";
     DialogAddingGroupComponent,
     DeletingGroupComponent,
     UpdatingGroupComponent,
+    ChatComponent,
+    AccessChatComponent,
   ],
   imports: [
     BrowserModule,

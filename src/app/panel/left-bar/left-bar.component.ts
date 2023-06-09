@@ -15,4 +15,8 @@ export class LeftBarComponent {
     this.router.navigateByUrl('/adminPanel');
   }
 
+  redirectToChat() {
+    this.router.navigateByUrl('/chat');
+  }
+
 }

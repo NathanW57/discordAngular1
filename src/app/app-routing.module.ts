@@ -11,6 +11,7 @@ import {AuthentificationGuard} from "./guards/authentification.guard";
 import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.component";
 import {AdminGuard} from "./guards/admin.guard";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
+import {ChatComponent} from "./pages/Chatting/chat/chat.component";
 
 const routes: Routes = [
 
@@ -47,6 +48,12 @@ const routes: Routes = [
         ]
 
   },
+
+  {
+    path:"chat",
+    component : ChatComponent,
+  }
+  ,
 
   {
     path: "forgotPassword",

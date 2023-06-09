@@ -1,0 +1,136 @@
+.container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .rightPanel{
+    display: flex;
+    width: 15%;
+    height:100%;
+    background-color: var(--color-primary-light);
+
+    .titleRightPanel {
+        height: 10%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+      h3 {
+        color: var(--color-accent-light);
+        font-weight: 500;
+        border-bottom: var(--color-accent-light) 1px solid;
+      }
+    }
+  }
+
+
+  .leftPanel{
+    display: flex;
+    width: 15%;
+    height:100%;
+    background-color: var(--color-primary-light);
+
+    .titleLeftPanel{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      h3{
+        color : var(--color-accent-light);
+        font-weight: 500;
+        border-bottom: var(--color-accent-light) 1px solid;
+      }
+
+    }
+
+  }
+
+
+  .middlePanel {
+    background-color: var(--color-neutral-light);
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: content-box;
+
+
+    .topHeaderForTittle {
+      box-sizing: border-box;
+      margin: 5px auto;
+      border-radius: 10px;
+      display: flex;
+      width: 99%;
+      height: 10%;
+      background-color: var(--color-white);
+
+      button {
+        width: 10%;
+        height: 100%;
+        background-color: var(--color-white);
+        border: none;
+        color: var(--color-accent-light);
+
+        mat-icon {
+          font-size: 40px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      h3 {
+        color: var(--color-primary-dark);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-weight: 500;
+      }
+    }
+
+  }
+  }
+
+.contentMessage{
+  box-sizing: border-box;
+  margin: 5px auto;
+  width: 99%;
+  height: 75%;
+  border-radius: 10px;
+  background-color: var(--color-white);
+}
+
+
+
+.messageTaille{
+  box-sizing: border-box;
+  width: 99%;
+  height: 10%;
+  margin: 5px auto;
+  border-radius: 10px;
+  background-color: var(--color-white);
+}
+
+.messageInput{
+  margin-top: 12px;
+  display: flex;
+  align-items: stretch;
+}
+
+input.messageOne {
+  flex-grow: 1;
+  border: none;
+}
+
+
+
+
+
+mat-icon {
+  width: fit-content;
+  height: fit-content;
+  font-size: xx-large;
+}

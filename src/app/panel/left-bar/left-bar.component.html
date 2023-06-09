@@ -1,4 +1,7 @@
 <div class="leftBar">
+  <div class="placementCanal">
+    <app-access-chat (click)="redirectToChat()"></app-access-chat>
+  </div>
   <div class="adminSection" *ngIf="login.isUserLoggedIn() && login.isUserAdmin()">
     <app-acess-admin (click)="redirectToAdminPanel()"></app-acess-admin>
   </div>

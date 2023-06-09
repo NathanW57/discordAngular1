@@ -6,8 +6,9 @@
   display: flex;
 }
 
-
-
+.leftBar{
+  width: 3%;
+}
 .content {
   flex-grow: 1;
   display: flex;
@@ -16,7 +17,7 @@
 
 .topBar {
   display: flex;
-  height: 5%;
+  height: 6%;
   background-color: #151B36;
 }
 
