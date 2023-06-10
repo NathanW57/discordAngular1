@@ -6,9 +6,17 @@
       <div class="titleLeftPanel">
         <h3>Membres</h3>
       </div>
-      <div class="contentLeftPanel">
+    <div class="contentLeftPanel">
+      <div class="scroll">
+      <mat-list *ngIf="channel && channel.members">
+        <mat-list-item *ngFor="let member of channel.members" class="member-item">
+            <p> <mat-icon color="warn" >person</mat-icon>   {{ member?.firstname }} {{ member?.lastname }}</p>
+        </mat-list-item>
+      </mat-list>
 
-      </div>
+    </div>
+    </div>
+
 
   </div>
 
@@ -16,7 +24,7 @@
 
 
         <div class="topHeaderForTittle">
-          <h3>Canal : </h3>
+          <h3>Canal: {{ channel?.name }}</h3>
           <button mat-button><mat-icon color="accent">vertical_align_bottom</mat-icon></button>
         </div>
 

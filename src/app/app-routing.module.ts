@@ -25,6 +25,12 @@ const routes: Routes = [
     component : HomeComponent,
     canActivate : [UserGuard,AuthentificationGuard]
   },
+  {
+    path:"chat/:id",
+    component : ChatComponent,
+    canActivate : [UserGuard,AuthentificationGuard]
+  }
+  ,
 
   {
     path :"adminPanel",
@@ -48,12 +54,6 @@ const routes: Routes = [
         ]
 
   },
-
-  {
-    path:"chat",
-    component : ChatComponent,
-  }
-  ,
 
   {
     path: "forgotPassword",

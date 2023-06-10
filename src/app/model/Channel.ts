@@ -2,12 +2,17 @@ import {UserGroupFinest} from "./UserGroupFinest";
 
 export type Channel={
 
-  cha_id?:number;
+  id:number;
 
-  cha_name?:string;
+  name?:string;
 
-  cha_members?:UserGroupFinest[];
+  visibility?:string;
 
-  cha_subscribers?:UserGroupFinest[];
+  members?:UserGroupFinest[];
+
+  subscribers?:UserGroupFinest[];
+
+  messages?:any[];
+
 
 }

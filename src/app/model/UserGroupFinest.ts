@@ -1,4 +1,4 @@
-export interface UserGroupFinest {
+export type UserGroupFinest = {
   id: number;
   firstname: string;
   lastname: string;
