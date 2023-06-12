@@ -33,8 +33,8 @@
 
         <div class="contentMessage">
 
-          <div class="message">
-
+          <div class="message" *ngFor="let message of messages">
+            <p>{{ message.content }}</p>
           </div>
 
         </div>
@@ -44,7 +44,7 @@
     <div class="messageContainer">
       <form class="messageInput">
         <app-menu-envoi-fichier></app-menu-envoi-fichier>
-        <input type="text" class="messageOne">
+        <input type="text" class="messageOne" name="newMessage" [(ngModel)]="newMessage">
         <button mat-icon-button matSuffix color="accent" ><mat-icon color="accent">send</mat-icon></button>
       </form>
     </div>
