@@ -16,7 +16,7 @@ export class LeftBarComponent {
   }
 
   redirectToChat() {
-    this.router.navigateByUrl('/chat');
+    this.router.navigateByUrl('/chat/1');
   }
 
 }

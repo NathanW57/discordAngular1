@@ -10,7 +10,8 @@
       <div class="scroll">
       <mat-list *ngIf="channel && channel.members">
         <mat-list-item *ngFor="let member of channel.members" class="member-item">
-            <p> <mat-icon color="warn" >person</mat-icon>   {{ member?.firstname }} {{ member?.lastname }}</p>
+          <mat-icon color="warn" class="leftIcon" >account_circle</mat-icon>
+          <p class="centered-text">{{ member?.firstname }}</p>
         </mat-list-item>
       </mat-list>
 
@@ -25,8 +26,10 @@
 
         <div class="topHeaderForTittle">
           <h3>Canal: {{ channel?.name }}</h3>
-          <button mat-button><mat-icon color="accent">vertical_align_bottom</mat-icon></button>
+          <app-menu-export></app-menu-export>
         </div>
+
+
 
         <div class="contentMessage">
 
@@ -40,7 +43,7 @@
 
     <div class="messageContainer">
       <form class="messageInput">
-        <button mat-icon-button matPrefix ><mat-icon color="accent">upload</mat-icon></button>
+        <app-menu-envoi-fichier></app-menu-envoi-fichier>
         <input type="text" class="messageOne">
         <button mat-icon-button matSuffix color="accent" ><mat-icon color="accent">send</mat-icon></button>
       </form>

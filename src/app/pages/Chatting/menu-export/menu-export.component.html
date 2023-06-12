@@ -1,0 +1,21 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" class="upload">
+  <mat-icon color="accent">vertical_align_bottom</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu" class="customize">
+  <div class="borderButton">
+    <div class="padding">
+    <button mat-button>
+      Exporter en CSV
+    </button>
+
+    <button mat-button>
+      Exporter en JSON
+    </button>
+
+    <button mat-button>
+      Exporter en XML
+    </button>
+    </div>
+  </div>
+</mat-menu>

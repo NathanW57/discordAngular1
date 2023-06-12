@@ -51,6 +51,8 @@ import { UpdatingGroupComponent } from './pages/Admin/AdminGroup/updating-group/
 import {JwtInterceptor} from "./service/jwt.interceptor";
 import { ChatComponent } from './pages/Chatting/chat/chat.component';
 import { AccessChatComponent } from './pages/Chatting/access-chat/access-chat.component';
+import { MenuEnvoiFichierComponent } from './pages/Chatting/menu-envoi-fichier/menu-envoi-fichier.component';
+import { MenuExportComponent } from './pages/Chatting/menu-export/menu-export.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,8 @@ import { AccessChatComponent } from './pages/Chatting/access-chat/access-chat.co
     UpdatingGroupComponent,
     ChatComponent,
     AccessChatComponent,
+    MenuEnvoiFichierComponent,
+    MenuExportComponent,
   ],
   imports: [
     BrowserModule,

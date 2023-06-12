@@ -1,0 +1,39 @@
+.upload{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+::ng-deep .customize {
+  background: var(--color-neutral-light);
+  border-radius: 10px;
+  border: 1px solid var(--color-accent-light);
+}
+
+
+.borderButton{
+  box-sizing: border-box;
+
+  .padding {
+    box-sizing: border-box;
+
+    button {
+      width: 90%;
+      box-sizing: border-box;
+      margin: 10px;
+      background-color: var(--color-white);
+    }
+
+  }
+}
+
+mat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  font-size: xx-large;
+}

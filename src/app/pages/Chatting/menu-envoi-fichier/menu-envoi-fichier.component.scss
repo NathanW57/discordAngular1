@@ -1,0 +1,23 @@
+.upload{
+  height: 100%;
+  width: 100%;
+}
+
+.borderButton{
+  padding: 10px;
+
+  button{
+    background-color: var(--color-white);
+  }
+}
+
+::ng-deep .customizeMenuEnvoi{
+  background-color: var(--color-neutral-light);
+  border: 1px solid var(--color-accent);
+  border-radius: 10px;
+}
+mat-icon {
+  width: fit-content;
+  height: fit-content;
+  font-size: xx-large;
+}

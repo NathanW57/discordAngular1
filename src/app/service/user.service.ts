@@ -4,6 +4,7 @@ import {User} from "../model/User";
 import {BehaviorSubject, catchError, Observable, Subject, tap, throwError} from "rxjs";
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {UserGroupFinest} from "../model/UserGroupFinest";
+import {Channel} from "../model/Channel";
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,12 @@ export class UserService {
         this.userDeleted.next(); // Emit an event to say that a user was deleted
       }
     ));
+  }
+
+  public getAllChannelByIdUser(id: number | undefined): Observable<Channel[]> {
+    return this.http.get<UserGroupFinest[]>(`${environnement.serveurUrl}channel/${id}/members`).pipe(
+      catchError(this.handleError)
+    );
   }
 
   public addingUser(user: User): Observable<User> {
