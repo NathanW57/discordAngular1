@@ -9,6 +9,7 @@ import { LoginService } from "../../../service/login.service";
 import { WebSocketService } from "../../../service/websocket.service";
 import { UserService } from "../../../service/user.service";
 import { IncomingMessage } from "../../../model/IncomingMessage";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-chat',
@@ -17,14 +18,23 @@ import { IncomingMessage } from "../../../model/IncomingMessage";
 })
 export class ChatComponent implements OnInit {
   channel: Channel | undefined;
+
   messages: Message[] = [];
 
-  newMessage: string = '';
+
   currentUser!: User;
 
   isIncomingMessage(message: Message): message is IncomingMessage {
     return (message as IncomingMessage).sender !== undefined;
   }
+
+
+  messageForm = new FormGroup({
+    message: new FormControl("", [
+      Validators.required,
+      Validators.minLength(1),
+    ]),
+  });
 
   constructor(
     private webSocket: WebSocketService,
@@ -52,7 +62,7 @@ export class ChatComponent implements OnInit {
       }
     });
 
-    this.webSocket.messageSent.subscribe(() => { // Listen for messageSent event
+    this.webSocket.messageSent.subscribe(() => {
       if (this.channel) {
         this.getMessages(this.channel.id);
       }
@@ -85,10 +95,15 @@ export class ChatComponent implements OnInit {
       );
   }
 
+
   public sendMessage(): void {
-    if (this.channel) {
-      this.webSocket.sendMessage(this.channel.id, this.newMessage);
-      this.newMessage = '';
+    if (this.channel && this.messageForm.valid) {
+      const messageContent = this.messageForm.get('message')!.value;
+      if (messageContent !== null) {
+        this.webSocket.sendMessage(this.channel.id, messageContent);
+        this.messageForm.reset();
+      }
     }
   }
+
 }

@@ -47,9 +47,9 @@
 
 
     <div class="messageContainer">
-      <form class="messageInput" (ngSubmit)="sendMessage()">
+      <form class="messageInput" [formGroup]="messageForm" (ngSubmit)="sendMessage()">
         <app-menu-envoi-fichier></app-menu-envoi-fichier>
-        <input type="text" class="messageOne" name="newMessage" [(ngModel)]="newMessage">
+        <input type="text" autocomplete="off" class="messageOne" (keyup.enter)="sendMessage()" formControlName="message">
         <button mat-icon-button matSuffix color="accent" type="submit"><mat-icon color="accent">send</mat-icon></button>
       </form>
     </div>

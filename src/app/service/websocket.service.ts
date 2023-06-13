@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Message} from '../model/Message';
 import {LoginService} from './login.service';
-import {Client, CompatClient, Stomp} from '@stomp/stompjs';
+import {CompatClient, Stomp} from '@stomp/stompjs';
 import {Observable, Subject, BehaviorSubject, first, tap} from "rxjs";
 import {OutgoingMessage} from "../model/OutgoingMessage";
 import {MessageService} from "./message.service";
@@ -32,14 +32,12 @@ export class WebSocketService {
 
   sendMessage(channelId: number, content: string): void {
     const user = this.loginService.getUser();
-    console.log('User:', user);
     if (user) {
       const message: OutgoingMessage = {
         channelId: channelId,
         userId: user.id as number,
         content: content
       };
-      console.log('Message:', message);
       this.messageService.saveMessage(message).pipe(
         tap(() => this.messageSent.next()) // Emit an event when the message is sent
       ).subscribe(() => {
