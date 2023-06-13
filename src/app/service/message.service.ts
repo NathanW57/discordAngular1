@@ -3,6 +3,7 @@ import {Message} from "../model/Message";
 import {environnement} from "../environnements/Environnement";
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {OutgoingMessage} from "../model/OutgoingMessage";
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,10 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   getMessagesByChannelId(channelId: number): Observable<Message[]> {
-    return this.http.get<Message[]>(`${environnement.serveurUrl}messages/${channelId}`);
+    return this.http.get<Message[]>(`${environnement.serveurUrl}messagesChannel/${channelId}`);
   }
 
-  addMessage(message: Message): Observable<Message> {
+  saveMessage(message: OutgoingMessage): Observable<any> {
     return this.http.post<Message>(`${environnement.serveurUrl}message`, message);
   }
 

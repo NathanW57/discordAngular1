@@ -165,9 +165,11 @@ html {
   box-sizing: border-box;
   margin: 5px auto;
   width: 99%;
-  height: 78%;
+  min-height: 70vh;
+  max-height: 70vh; /* Définir une hauteur maximale */
   border-radius: 10px;
   background-color: var(--color-white);
+  overflow: auto;
 
   .message{
     box-sizing: border-box;

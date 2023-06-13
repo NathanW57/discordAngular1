@@ -29,6 +29,7 @@ export class LoginService {
       const roles: Role[] = userData.role;
 
       const user: User = {
+        id: userData.id,
         email: userData.sub,
         lastname: userData.lastname,
         firstname: userData.firstname,

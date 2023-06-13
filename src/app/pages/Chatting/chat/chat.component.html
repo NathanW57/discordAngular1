@@ -31,21 +31,26 @@
 
 
 
-        <div class="contentMessage">
+    <div class="contentMessage">
+      <div class="message" *ngFor="let message of messages">
+        <p>
+          <mat-icon color="warn" class="leftIconMessage">account_circle</mat-icon>
+          <strong *ngIf="isIncomingMessage(message)">{{ message.sender.firstname }} </strong>
+          <strong *ngIf="!isIncomingMessage(message)">{{ currentUser.firstname }} </strong>
+          : {{ message.content }}
+        </p>
+      </div>
+    </div>
 
-          <div class="message" *ngFor="let message of messages">
-            <p><mat-icon color="warn" class="leftIconMessage">account_circle</mat-icon> <strong>{{message.sender.firstname}} </strong> : {{ message.content }}</p>
-          </div>
 
-        </div>
 
 
 
     <div class="messageContainer">
-      <form class="messageInput">
+      <form class="messageInput" (ngSubmit)="sendMessage()">
         <app-menu-envoi-fichier></app-menu-envoi-fichier>
         <input type="text" class="messageOne" name="newMessage" [(ngModel)]="newMessage">
-        <button mat-icon-button matSuffix color="accent" ><mat-icon color="accent">send</mat-icon></button>
+        <button mat-icon-button matSuffix color="accent" type="submit"><mat-icon color="accent">send</mat-icon></button>
       </form>
     </div>
 

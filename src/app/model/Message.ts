@@ -1,8 +1,4 @@
-// model/Message.ts
-import {User} from "./User";
+import { OutgoingMessage } from './OutgoingMessage';
+import { IncomingMessage } from './IncomingMessage';
 
-export interface Message {
-  id: number;
-  content: string;
-  sender: User;
-}
+export type Message = OutgoingMessage | IncomingMessage;

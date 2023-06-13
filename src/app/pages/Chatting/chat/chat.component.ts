@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Channel } from "../../../model/Channel";
 import { ChannelService } from "../../../service/channel.service";
 import { ActivatedRoute } from "@angular/router";
-import {Message} from "../../../model/Message";
-import {MessageService} from "../../../service/message.service";
-import {User} from "../../../model/User";
-import {LoginService} from "../../../service/login.service";
-import {Subscription} from "rxjs";
+import { Message } from "../../../model/Message";
+import { MessageService } from "../../../service/message.service";
+import { User } from "../../../model/User";
+import { LoginService } from "../../../service/login.service";
+import { WebSocketService } from "../../../service/websocket.service";
+import { UserService } from "../../../service/user.service";
+import { IncomingMessage } from "../../../model/IncomingMessage";
 
 @Component({
   selector: 'app-chat',
@@ -20,10 +22,18 @@ export class ChatComponent implements OnInit {
   newMessage: string = '';
   currentUser!: User;
 
-  userMessage : Message | undefined;
+  isIncomingMessage(message: Message): message is IncomingMessage {
+    return (message as IncomingMessage).sender !== undefined;
+  }
 
-  constructor(private authService : LoginService,private channelService: ChannelService, private messageService: MessageService, private route: ActivatedRoute) { }
-
+  constructor(
+    private webSocket: WebSocketService,
+    private authService : LoginService,
+    private channelService: ChannelService,
+    private messageService: MessageService,
+    private userService: UserService,
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -31,6 +41,20 @@ export class ChatComponent implements OnInit {
       if (channelId) {
         this.getChannel(channelId);
         this.getMessages(channelId);
+        this.webSocket.subscribeToChannel(channelId).subscribe((message: Message) => {
+          this.messages.push(message);
+          this.cdr.detectChanges();
+          if ('userId' in message) {
+            this.userService.getUserById(message.userId).subscribe(user => {
+            });
+          }
+        });
+      }
+    });
+
+    this.webSocket.messageSent.subscribe(() => { // Listen for messageSent event
+      if (this.channel) {
+        this.getMessages(this.channel.id);
       }
     });
 
@@ -42,25 +66,12 @@ export class ChatComponent implements OnInit {
       .subscribe(
         (messages: Message[]) => {
           this.messages = messages;
-          for(let message of this.messages) {
-            console.log('User name:', message.sender.firstname);
-          }
         },
         (error: any) => {
           console.error(error);
         }
       );
   }
-
-
-  logUserNames(): void {
-    for(let message of this.messages) {
-      console.log('User name:', message.sender.firstname);
-    }
-  }
-
-
-
 
   getChannel(id: number): void {
     this.channelService.getAllMembersByChannelId(id)
@@ -74,11 +85,10 @@ export class ChatComponent implements OnInit {
       );
   }
 
-
-
-
-
-  // public sendMessage(channelId: number, message: string): void {
-  //   this.webSocket.sendMessage(channelId, message);
-  // }
+  public sendMessage(): void {
+    if (this.channel) {
+      this.webSocket.sendMessage(this.channel.id, this.newMessage);
+      this.newMessage = '';
+    }
+  }
 }
