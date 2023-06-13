@@ -34,7 +34,7 @@
         <div class="contentMessage">
 
           <div class="message" *ngFor="let message of messages">
-            <p>{{ message.content }}</p>
+            <p><mat-icon color="warn" class="leftIconMessage">account_circle</mat-icon> <strong>{{message.sender.firstname}} </strong> : {{ message.content }}</p>
           </div>
 
         </div>

@@ -1,26 +1,25 @@
 import { Injectable } from '@angular/core';
-// @ts-ignore
-import { Client, Message } from '@stomp/stompjs';
 import {environnementWs} from "../environnements/environnementWs";
 import {LoginService} from "./login.service";
-// @ts-ignore
-import { StompService } from '@stomp/ng2-stompjs';
+import {Message} from "../model/Message";
+import {CompatClient, Stomp} from "@stomp/stompjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebSocketService {
-  private stompClient: Client;
+  // private stompClient: CompatClient;
 
 
-  constructor(private loginService: LoginService) {
-    this.stompClient = new Client();
-    this.stompClient.configure({
-      brokerURL: environnementWs.websocketUrl,
-      // other configuration options
-    });
-    this.stompClient.activate();
-  }
+  // constructor(private loginService: LoginService) {
+  //   this.stompClient = Stomp.client(environnementWs.websocketUrl);
+  //   this.stompClient.connect({}, (channelId:number) => {
+  //     this.stompClient.subscribe(`/topic/chat/${channelId}`, (message) => {
+  //       console.log(message);
+  //     });
+  //   });
+  //   }
+  // }
 
   // sendMessage(channelId: number, content: string): void {
   //   const user = this.loginService.getUser();
@@ -31,8 +30,8 @@ export class WebSocketService {
   //       timestamp: '',
   //       user: user
   //     };
-  //     this.stompService.publish(`/app/chat/${channelId}`, JSON.stringify(message));
+  //     this.stompClient.publish(`/app/chat`, JSON.stringify(message));
   //   }
   // }
+// }
 }
-

@@ -19,4 +19,8 @@ export class MessageService {
     return this.http.post<Message>(`${environnement.serveurUrl}message`, message);
   }
 
+  getMessageByIdMessage(idMessage: number): Observable<Message> {
+    return this.http.get<Message>(`${environnement.serveurUrl}message/${idMessage}`);
+  }
+
 }
