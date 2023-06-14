@@ -18,6 +18,14 @@ export class LoginService {
 
   }
 
+
+  getUserId(): number | undefined | null {
+    const user = this._userConnected.value;
+    return user ? user.id : null;
+  }
+
+
+
   updateUserConnected() {
     const jwt = localStorage.getItem('jwt');
 
@@ -45,6 +53,7 @@ export class LoginService {
   connexion(user: User): Observable<string> {
     return this.http.post('http://localhost:8081/connexion', user, { responseType: 'text' });
   }
+
 
   disconnect() {
     localStorage.removeItem('jwt');

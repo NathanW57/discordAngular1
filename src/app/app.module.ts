@@ -90,6 +90,7 @@ import { MenuExportComponent } from './pages/Chatting/menu-export/menu-export.co
     AccessChatComponent,
     MenuEnvoiFichierComponent,
     MenuExportComponent,
+
   ],
   imports: [
     BrowserModule,

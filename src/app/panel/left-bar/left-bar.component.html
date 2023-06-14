@@ -1,7 +1,9 @@
 <div class="leftBar">
-  <div class="placementCanal">
-    <app-access-chat (click)="redirectToChat()"></app-access-chat>
-  </div>
+  <ng-container *ngIf="(channels$ | async) as channels">
+    <div class="placementCanal" *ngFor="let channel of channels">
+      <app-access-chat (click)="redirectToChat(channel.id)">{{ channel.name }}</app-access-chat>
+    </div>
+  </ng-container>
   <div class="adminSection" *ngIf="login.isUserLoggedIn() && login.isUserAdmin()">
     <app-acess-admin (click)="redirectToAdminPanel()"></app-acess-admin>
   </div>

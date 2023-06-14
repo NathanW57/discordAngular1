@@ -12,6 +12,7 @@ import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.co
 import {AdminGuard} from "./guards/admin.guard";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
 import {ChatComponent} from "./pages/Chatting/chat/chat.component";
+import {AccessChatComponent} from "./pages/Chatting/access-chat/access-chat.component";
 
 const routes: Routes = [
 
@@ -25,6 +26,12 @@ const routes: Routes = [
     component : HomeComponent,
     canActivate : [UserGuard,AuthentificationGuard]
   },
+  {
+    path:"chat",
+    component : AccessChatComponent,
+    canActivate : [UserGuard,AuthentificationGuard]
+  }
+  ,
   {
     path:"chat/:id",
     component : ChatComponent,
