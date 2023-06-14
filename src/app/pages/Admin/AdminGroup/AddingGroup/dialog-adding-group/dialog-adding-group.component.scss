@@ -1,17 +1,18 @@
 
 .container-dialog .container {
-  background-color: #3E4160;
+  background-color: var(--color-primary-light);
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 
 .container-dialog h1 {
   text-align: center;
-  color: white;
+  color: var(--color-white);
   font-weight: bold;
-  border-bottom: 1.5px solid #FF9763;
+  border-bottom: 1.5px solid var(--color-accent);
   font-family: "Arial Black", sans-serif;
 }
 
@@ -46,5 +47,5 @@
   background-color: red;
 }
 #logIn{
-  background-color: var(--orangeclair);
+  background-color: var(--color-accent-light);
 }

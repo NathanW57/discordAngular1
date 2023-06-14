@@ -3,10 +3,10 @@
 <div class="container-dialog">
   <div class="container">
     <form [formGroup]="formulaire">
-      <h1>Adding Group</h1>
+      <h1>Ajouter un groupe</h1>
 
       <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
+        <mat-label>Nom de groupe</mat-label>
         <input matInput type="text" formControlName="name" (keyup)="errorComplete = false">
         <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Name is required</mat-error>
         <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Name must be at least 2 characters</mat-error>

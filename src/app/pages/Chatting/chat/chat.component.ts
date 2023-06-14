@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
 import { Channel } from "../../../model/Channel";
 import { ChannelService } from "../../../service/channel.service";
 import { ActivatedRoute } from "@angular/router";
@@ -10,6 +10,7 @@ import { WebSocketService } from "../../../service/websocket.service";
 import { UserService } from "../../../service/user.service";
 import { IncomingMessage } from "../../../model/IncomingMessage";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-chat',
@@ -21,6 +22,8 @@ export class ChatComponent implements OnInit {
 
   messages: Message[] = [];
 
+
+  private userMessage: Subscription | undefined;
 
   currentUser!: User;
 
@@ -36,6 +39,9 @@ export class ChatComponent implements OnInit {
     ]),
   });
 
+
+  $channelId = Number(this.route.snapshot.paramMap.get('id'));
+
   constructor(
     private webSocket: WebSocketService,
     private authService : LoginService,
@@ -43,7 +49,7 @@ export class ChatComponent implements OnInit {
     private messageService: MessageService,
     private userService: UserService,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef) { }
+    private cdr : ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -53,16 +59,15 @@ export class ChatComponent implements OnInit {
         this.getMessages(channelId);
         this.webSocket.subscribeToChannel(channelId).subscribe((message: Message) => {
           this.messages.push(message);
+          var chat = document.getElementById("contentMessage");
+          chat!.scrollTop = chat!.scrollHeight;
           this.cdr.detectChanges();
-          if ('userId' in message) {
-            this.userService.getUserById(message.userId).subscribe(user => {
-            });
-          }
         });
       }
     });
 
-    this.webSocket.messageSent.subscribe(() => {
+    this.webSocket.messageSent.subscribe((message
+    ) => {
       if (this.channel) {
         this.getMessages(this.channel.id);
       }

@@ -63,9 +63,9 @@ html {
     .contentLeftPanel{
       box-sizing: border-box;
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       max-width: 95%;
-      margin: 10px auto;
+      margin: 5px auto;
       color: var(--color-primary-dark);
       overflow: hidden;
 
@@ -73,7 +73,6 @@ html {
 
       .scroll {
         box-sizing: content-box;
-        text-align: center;
         height: 47em;
         width: 200px;
         overflow: scroll;
@@ -94,10 +93,12 @@ html {
 
         .leftIcon {
           float: left;
+          margin-right: 10px;
         }
 
         .centered-text {
-          text-align: center;
+          margin-top: 5px;
+          text-align: justify-all;
           width: 100%;
           font-size: 18px;
           font-weight: 500;
@@ -120,6 +121,7 @@ html {
     .topHeaderForTittle {
       box-sizing: border-box;
       margin: 5px auto;
+      padding: 5px;
       border-radius: 10px;
       display: flex;
       width: 99%;
@@ -165,8 +167,8 @@ html {
   box-sizing: border-box;
   margin: 5px auto;
   width: 99%;
-  min-height: 70vh;
-  max-height: 70vh; /* Définir une hauteur maximale */
+  min-height: 75vh;
+  max-height: 75vh; /* Définir une hauteur maximale */
   border-radius: 10px;
   background-color: var(--color-white);
   overflow: auto;
@@ -208,30 +210,43 @@ html {
 
 .messageContainer{
   box-sizing: border-box;
+  display: flex;
   width: 99%;
-  height: 10%;
+  height: 9%;
   margin: 5px auto;
+  padding: 5px;
   border-radius: 10px;
   background-color: var(--color-white);
-}
 
-.messageInput{
-  margin-top: 5px;
-  display: flex;
-  align-items: stretch;
 
   app-menu-envoi-fichier{
-    width: 5%;
+
+    flex-grow: 0.1;
+    background-color: var(--color-white);
+    border: none;
+  }
+
+  input.messageOne {
+    margin-top: 15px;
+    flex-grow: 1;
+    height: 50%;
+    border: none;
+  }
+
+  .messageInput{
+    display: flex;
+    flex-grow: 9;
+    background-color: var(--color-white);
+  }
+
+  button{
+    flex-grow: 0;
     height: 100%;
     background-color: var(--color-white);
     border: none;
   }
 }
 
-input.messageOne {
-  flex-grow: 1;
-  border: none;
-}
 
 
 mat-icon {

@@ -13,9 +13,9 @@ export class WebSocketService {
 
   private stompClient!: CompatClient;
   private connected: Subject<boolean> = new BehaviorSubject<boolean>(false);
-  messageSent: Subject<void> = new Subject<void>(); // Notify when a message is sent
+  messageSent: Subject<void> = new Subject<void>();
 
-  constructor(private loginService: LoginService, private messageService: MessageService) {
+  constructor(private loginService: LoginService) {
     this.initializeWebSocketConnection();
   }
 
@@ -26,6 +26,7 @@ export class WebSocketService {
     };
     let that = this;
     this.stompClient.connect({}, function (frame: unknown) {
+      console.log("Connected to WebSocket");
       that.connected.next(true);
     });
   }
@@ -38,21 +39,19 @@ export class WebSocketService {
         userId: user.id as number,
         content: content
       };
-      this.messageService.saveMessage(message).pipe(
-        tap(() => this.messageSent.next()) // Emit an event when the message is sent
-      ).subscribe(() => {
-        this.stompClient.publish({
+      console.log(`Sending message to channel ${channelId}: ${content}`);
+      this.stompClient.publish({
           destination: `/app/chat/${message.channelId}`,
           body: JSON.stringify(message)
-        });
-      });
+        })
+      this.messageSent.next();
     }
   }
 
   subscribeToChannel(channelId: number): Observable<Message> {
     const messagesSubject = new Subject<Message>();
 
-    this.connected.pipe(first()).subscribe(connected => {
+    this.connected.pipe().subscribe(connected => {
       if (connected) {
         this.stompClient.subscribe(`/topic/chat/${channelId}`, (message) => {
           if (message.body) {

@@ -11,7 +11,7 @@
       <mat-list *ngIf="channel && channel.members">
         <mat-list-item *ngFor="let member of channel.members" class="member-item">
           <mat-icon color="warn" class="leftIcon" >account_circle</mat-icon>
-          <p class="centered-text">{{ member?.firstname }}</p>
+          <p class="centered-text">{{ member?.firstname }} {{member.lastname}}</p>
         </mat-list-item>
       </mat-list>
 
@@ -36,7 +36,6 @@
         <p>
           <mat-icon color="warn" class="leftIconMessage">account_circle</mat-icon>
           <strong *ngIf="isIncomingMessage(message)">{{ message.sender.firstname }} </strong>
-          <strong *ngIf="!isIncomingMessage(message)">{{ currentUser.firstname }} </strong>
           : {{ message.content }}
         </p>
       </div>
@@ -47,9 +46,9 @@
 
 
     <div class="messageContainer">
+      <app-menu-envoi-fichier></app-menu-envoi-fichier>
       <form class="messageInput" [formGroup]="messageForm" (ngSubmit)="sendMessage()">
-        <app-menu-envoi-fichier></app-menu-envoi-fichier>
-        <input type="text" autocomplete="off" class="messageOne" (keyup.enter)="sendMessage()" formControlName="message">
+        <input type="text" autocomplete="off" class="messageOne" formControlName="message">
         <button mat-icon-button matSuffix color="accent" type="submit"><mat-icon color="accent">send</mat-icon></button>
       </form>
     </div>

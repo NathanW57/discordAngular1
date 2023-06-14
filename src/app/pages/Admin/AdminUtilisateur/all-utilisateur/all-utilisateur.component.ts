@@ -17,10 +17,6 @@ import {User} from "../../../../model/User";
 })
 export class AllUtilisateurComponent implements OnInit, OnDestroy {
 
-  private userAdded: Subscription | undefined;
-
-
-  private userDeleted: Subscription | undefined;
 
   isLoading = false;
   dataSource = new MatTableDataSource<UserGroupFinest>([]);

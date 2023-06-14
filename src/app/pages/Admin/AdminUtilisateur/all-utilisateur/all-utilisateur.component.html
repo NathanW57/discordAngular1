@@ -14,9 +14,9 @@
         <div class="table-header">
 
           <div class="filter-field">
-            <h3>Users</h3>
+            <h3>Utilisateurs</h3>
             <mat-form-field appearance="fill">
-              <mat-label>Search</mat-label>
+              <mat-label>Recherche</mat-label>
               <input matInput [(ngModel)]="filterValue" (keyup)="applyFilter(filterValue)">
               <mat-icon matSuffix color="warn">search</mat-icon>
             </mat-form-field>
@@ -27,12 +27,12 @@
 
       <mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="firstname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> First Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by firstname"> Prénom </mat-header-cell>
           <mat-cell *matCellDef="let member"> {{member.firstname}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="lastname">
-          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Last Name </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by lastname"> Nom </mat-header-cell>
           <mat-cell *matCellDef="let member"> {{member.lastname}} </mat-cell>
         </ng-container>
 
