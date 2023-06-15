@@ -1,6 +1,6 @@
 
 .container-dialog .container {
-  background-color: var(--color-primary-light);
+  background-color: var(--color-white);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .container-dialog h1 {
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-primary-dark);
   font-weight: bold;
   border-bottom: 1.5px solid var(--color-accent);
   font-family: "Arial Black", sans-serif;
@@ -21,6 +21,7 @@
   width: 100%;
   margin-top: 10px;
 }
+
 
 .container-dialog mat-form-field {
   width: 100%;
@@ -44,8 +45,24 @@
 }
 
 #cancelButton{
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.78);
+
+  &:hover{
+    background-color: red;
+  }
+
+  &:active{
+    background-color: red;
+  }
 }
 #logIn{
-  background-color: var(--color-accent-light);
+  background-color: rgba(0, 100, 0, 0.87);
+
+  &:hover{
+    background-color: green;
+  }
+  &:active{
+    background-color: darkgreen;
+  }
 }
+

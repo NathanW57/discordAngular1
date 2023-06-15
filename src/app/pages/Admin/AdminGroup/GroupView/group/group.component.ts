@@ -11,6 +11,8 @@ import {Subscription} from "rxjs";
 })
 export class GroupComponent implements OnInit {
 
+
+  group : Group | undefined;
   dataSource: MatTableDataSource<Group>;
   displayedColumns: string[] = ['name'];
 

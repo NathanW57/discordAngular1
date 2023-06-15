@@ -2,6 +2,7 @@
   /* Ajustez la position du bouton, la taille de la police et le remplissage */
   position: relative;
   font-size: 30px;
+  background-color: var(--color-accent-light);
 }
 
 mat-icon {
@@ -12,8 +13,8 @@ mat-icon {
   height: 30px;
   width: 30px;
   transform: translate(-50%, -50%);
-  font-size: 30px;
-  color: var(--orangeclair);
+  font-size: 25px;
+  color: var(--color-primary-dark);
 
 }
 

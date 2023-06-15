@@ -5,12 +5,12 @@
     <form [formGroup]="formulaire">
       <h1>Ajouter un groupe</h1>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" >
         <mat-label>Nom de groupe</mat-label>
         <input matInput type="text" formControlName="name" (keyup)="errorComplete = false">
-        <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Name is required</mat-error>
-        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Name must be at least 2 characters</mat-error>
-        <mat-error *ngIf="formulaire.controls['name'].hasError('maxlength')">Name max is 15 characters</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Un nom est requis</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Le nom doit contenir un minimum de 2 caractères</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('maxlength')">Le nombre maximal de caractères est de 15</mat-error>
       </mat-form-field>
 
 

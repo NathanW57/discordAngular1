@@ -21,7 +21,7 @@ export class LeftBarComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const userId = this.login.getUserId() ?? 0; // Utiliser une valeur par défaut (0) si l'ID de l'utilisateur est null ou undefined
+    const userId = this.login.getUserId() ?? 0;
     this.channels$ = this.channelService.getUserChannels(userId);
 
     this.userLoggedInSubscription = this.login._userConnected.subscribe(() => {

@@ -6,6 +6,7 @@ import {CompatClient, Stomp, StompSubscription} from '@stomp/stompjs';
 import {Observable, Subject, BehaviorSubject, first, tap} from "rxjs";
 import {OutgoingMessage} from "../model/OutgoingMessage";
 import {MessageService} from "./message.service";
+import {environnement} from "../environnements/Environnement";
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +23,12 @@ export class WebSocketService {
   }
 
   initializeWebSocketConnection() {
-    const ws = () => new WebSocket('ws://localhost:8081/chat');
+    const ws = () => new WebSocket(`${environnement.websocketUrl}`);
     this.stompClient = Stomp.over(ws);
     this.stompClient.debug = () => {
     };
     let that = this;
     this.stompClient.connect({}, function (frame: unknown) {
-      console.log("Connected to WebSocket");
       that.connected.next(true);
     });
   }

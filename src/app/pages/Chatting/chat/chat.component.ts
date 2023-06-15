@@ -33,9 +33,9 @@ export class ChatComponent implements OnInit, OnDestroy {
     message: new FormControl("", [
       Validators.required,
       Validators.minLength(1),
+      Validators.pattern(/^(\s+\S+\s*)*(?!\s).*$/)
     ]),
   });
-  $channelId = Number(this.route.snapshot.paramMap.get('id'));
 
   constructor(
     private webSocket: WebSocketService,
@@ -73,7 +73,7 @@ export class ChatComponent implements OnInit, OnDestroy {
 
   scrollToBottom(): void {
     setTimeout(() => {
-      var chat = document.getElementById("contentMessage");
+      let chat = document.getElementById("contentMessage");
       if (chat) {
         chat.scrollTop = chat.scrollHeight;
       }
@@ -87,7 +87,7 @@ export class ChatComponent implements OnInit, OnDestroy {
       .subscribe(
         (messages: Message[]) => {
           this.messages = messages;
-          this.scrollToBottom(); // Scroll to bottom after assigning messages
+          this.scrollToBottom();
         },
         (error: any) => {
           console.error(error);
@@ -127,7 +127,7 @@ export class ChatComponent implements OnInit, OnDestroy {
     const newSub = this.webSocket.getNewMessages(channelId).subscribe((message: Message) => {
       this.ngZone.run(() => {
         this.messages.push(message);
-        var chat = document.getElementById("contentMessage");
+        let chat = document.getElementById("contentMessage");
         chat!.scrollTop = chat!.scrollHeight;
         this.cdr.detectChanges();
       });

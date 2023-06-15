@@ -35,7 +35,7 @@
       <div class="message" *ngFor="let message of messages">
         <p>
           <mat-icon color="warn" class="leftIconMessage">account_circle</mat-icon>
-          <strong *ngIf="isIncomingMessage(message)">{{ message.sender.firstname }} </strong>
+          <strong *ngIf="isIncomingMessage(message)">{{ message.sender.firstname }} {{message.sender.lastname}} </strong>
           : {{ message.content }}
         </p>
       </div>

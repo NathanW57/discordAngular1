@@ -13,6 +13,12 @@ import {AdminGuard} from "./guards/admin.guard";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
 import {ChatComponent} from "./pages/Chatting/chat/chat.component";
 import {AccessChatComponent} from "./pages/Chatting/access-chat/access-chat.component";
+import {
+  DialogAddingGroupComponent
+} from "./pages/Admin/AdminGroup/AddingGroup/dialog-adding-group/dialog-adding-group.component";
+import {
+  AccessAddingGroupComponent
+} from "./pages/Admin/AdminGroup/AddingGroup/access-adding-group/access-adding-group.component";
 
 const routes: Routes = [
 
@@ -25,12 +31,8 @@ const routes: Routes = [
     path:"home",
     component : HomeComponent,
     canActivate : [UserGuard,AuthentificationGuard]
-  },
-  {
-    path:"chat",
-    component : AccessChatComponent,
-    canActivate : [UserGuard,AuthentificationGuard]
   }
+
   ,
   {
     path:"chat/:id",
