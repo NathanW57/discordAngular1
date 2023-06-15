@@ -1,25 +1,28 @@
 <div class="container">
   <div class="allTheGroupe">
-  <div class="tableArea">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 scrollable-table">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Groupes</th>
-        <td mat-cell *matCellDef="let element">
-
-          <button mat-button [routerLink]="onButtonClick(element.id)">
-            <mat-icon>groups</mat-icon>
-            <span>{{ element.name }}</span>
-          </button>
-        </td>
+    <div class="tableArea">
+      <ng-container *ngIf="groups$ | async as groups">
+        <h2>Groupes</h2>
+        <div class="scrollable-table">
+          <mat-list>
+            <mat-list-item *ngFor="let group of groups">
+              <button mat-icon-button
+                      [routerLink]="['//adminPanel/group/', group.id]"
+                      (click)="onButtonClick(group.id)"
+                      class="group-button"
+                      [class.selected]="selectedGroupId === group.id">
+                <mat-icon>groups</mat-icon>
+                <span>{{ group.name }}</span>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
       </ng-container>
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
+      <ng-template #noGroups>
+        <h2>Aucun groupe trouvé</h2>
+      </ng-template>
+    </div>
     <app-access-adding-group></app-access-adding-group>
-  </div>
   </div>
   <div class="contentArea">
     <router-outlet></router-outlet>

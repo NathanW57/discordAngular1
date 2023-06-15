@@ -16,20 +16,13 @@ export class GroupService {
 
   deletedGroup = new Subject<void>();
 
+
   constructor(private http: HttpClient) {}
 
 
-  public getAllGroups() {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
 
-    return this.http.get<Group[]>(environnement.serveurUrl + 'groups', { headers }).subscribe(
-      (groups: Group[]) => {
-        this._group.next(groups);
-      },
-      (error) => {
-      }
-    );
+  getGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(environnement.serveurUrl + 'groups');
   }
 
   public getGroupById(id: number | undefined): Observable<GroupFinest> {
@@ -40,10 +33,8 @@ export class GroupService {
   }
 
   public addGroup(group: Group): Observable<Group> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
 
-    return this.http.post<Group>(environnement.serveurUrl + 'groups', group, { headers }).pipe(
+    return this.http.post<Group>(environnement.serveurUrl + 'groups', group).pipe(
       tap(() => {
         this.groupAdded.next(); // Emit an event to say that a group was added
       }
@@ -51,10 +42,8 @@ export class GroupService {
   }
 
   public deleteGroup(id: number): Observable<void> {
-    const jwt = localStorage.getItem('jwt');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${jwt}`);
 
-    return this.http.delete<void>(environnement.serveurUrl + 'groups/' + id, { headers }).pipe(
+    return this.http.delete<void>(environnement.serveurUrl + 'groups/' + id).pipe(
       tap(() => {
         this.deletedGroup.next(); // Emit an event to say that a group was deleted
       }

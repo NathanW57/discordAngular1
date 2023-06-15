@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Group } from "../../../../../model/Group";
 import { MatTableDataSource } from "@angular/material/table";
 import { GroupService } from "../../../../../service/GroupService/group.service";
-import {Subscription} from "rxjs";
+import {Observable, Subscription} from "rxjs";
 
 @Component({
   selector: 'app-group',
@@ -12,38 +12,45 @@ import {Subscription} from "rxjs";
 export class GroupComponent implements OnInit {
 
 
-  group : Group | undefined;
-  dataSource: MatTableDataSource<Group>;
-  displayedColumns: string[] = ['name'];
+  groups$: Observable<Group[]> | undefined;
 
   private groupAdded: Subscription | undefined;
-
-  private groupDeleted : Subscription | undefined;
+  private groupDeleted: Subscription | undefined;
 
   constructor(private serviceGroup: GroupService) {
-    this.dataSource = new MatTableDataSource<Group>([]);
   }
 
-  ngOnInit(): void {
-    this.serviceGroup.getAllGroups();
-    this.serviceGroup._group.subscribe((listeGroup) => {
-      this.dataSource.data = listeGroup;
+
+  ngOnInit() {
+    this.serviceGroup.groupAdded.subscribe(() => {
+      console.log('A group was added.');
+      this.getGroups();
     });
 
-    this.groupAdded = this.serviceGroup.groupAdded.subscribe(() => {
-      this.serviceGroup.getAllGroups();
-    }
-    );
+    // Subscribe to group deleted event
+    this.serviceGroup.deletedGroup.subscribe(() => {
+      console.log('A group was deleted.');
+      this.getGroups();
+    });
 
-    this.groupDeleted = this.serviceGroup.deletedGroup.subscribe(() => {
-      this.serviceGroup.getAllGroups();
-    }
-    );
+    this.getGroups();
   }
 
-  onButtonClick(groupId: number): any {
+  ngOnDestroy(): void {
+    this.groupAdded?.unsubscribe();
+    this.groupDeleted?.unsubscribe();
+  }
+
+  selectedId: number | null = null;
+
+  selectedGroupId: number | undefined;
+  onButtonClick(groupId: number | undefined): any {
     try {
+      console.log(this.selectedId);
       if (groupId != undefined) {
+        this.selectedId = groupId;
+        console.log(this.selectedId);
+        this.selectedGroupId = groupId;
         return Number(groupId);
       }
     }
@@ -53,12 +60,12 @@ export class GroupComponent implements OnInit {
     }
   }
 
-  deletedGroup(groupId: number): void {
 
-    this.serviceGroup.deleteGroup(groupId)
-      .subscribe(() => {
-        this.serviceGroup.getAllGroups();
-});
+  getGroups(): void {
+    this.groups$ = this.serviceGroup.getGroups();
+  }
+
+  deletedGroup(groupId: number): void {
 
 }
 }

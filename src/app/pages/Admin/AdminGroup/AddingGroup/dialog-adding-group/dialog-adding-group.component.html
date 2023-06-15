@@ -11,6 +11,7 @@
         <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Un nom est requis</mat-error>
         <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Le nom doit contenir un minimum de 2 caractères</mat-error>
         <mat-error *ngIf="formulaire.controls['name'].hasError('maxlength')">Le nombre maximal de caractères est de 15</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('pattern')">Tu ne peux pas mettre de caractères spéciaux</mat-error>
       </mat-form-field>
 
 
