@@ -53,6 +53,10 @@ import { ChatComponent } from './pages/Chatting/chat/chat.component';
 import { AccessChatComponent } from './pages/Chatting/access-chat/access-chat.component';
 import { MenuEnvoiFichierComponent } from './pages/Chatting/menu-envoi-fichier/menu-envoi-fichier.component';
 import { MenuExportComponent } from './pages/Chatting/menu-export/menu-export.component';
+import { ChannelComponent } from './pages/Admin/AdminChannel/ChannelView/channel/channel.component';
+import { AccessAddingChannelComponent } from './pages/Admin/AdminChannel/AddingChannel/access-adding-channel/access-adding-channel.component';
+import { DialogAddingChannelComponent } from './pages/Admin/AdminChannel/AddingChannel/dialog-adding-channel/dialog-adding-channel.component';
+import { ChannelFinestComponent } from './pages/Admin/AdminChannel/ChannelView/channel-finest/channel-finest.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +94,10 @@ import { MenuExportComponent } from './pages/Chatting/menu-export/menu-export.co
     AccessChatComponent,
     MenuEnvoiFichierComponent,
     MenuExportComponent,
+    ChannelComponent,
+    AccessAddingChannelComponent,
+    DialogAddingChannelComponent,
+    ChannelFinestComponent,
 
   ],
   imports: [

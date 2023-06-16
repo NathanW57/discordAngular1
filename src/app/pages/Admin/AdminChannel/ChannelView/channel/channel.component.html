@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="allTheGroupe">
+    <div class="tableArea">
+      <ng-container *ngIf="channel$ | async as channels">
+        <h2>Channels</h2>
+        <div class="scrollable">
+          <mat-list>
+            <mat-list-item *ngFor="let channel of channels">
+              <button mat-icon-button
+                      [routerLink]="['//adminPanel/channels', channel.id]"
+                      (click)="onButtonClick(channel.id)"
+                      class="group-button"
+                      [class.selected]="selectedGroupId === channel.id">
+                <mat-icon>groups</mat-icon>
+                <span>{{ channel.name }}</span>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </ng-container>
+      <ng-template #noGroups>
+        <h2>Aucun groupe trouvé</h2>
+      </ng-template>
+    </div>
+    <app-access-adding-channel></app-access-adding-channel>
+  </div>
+  <div class="contentArea">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -19,6 +19,8 @@ import {
 import {
   AccessAddingGroupComponent
 } from "./pages/Admin/AdminGroup/AddingGroup/access-adding-group/access-adding-group.component";
+import {ChannelComponent} from "./pages/Admin/AdminChannel/ChannelView/channel/channel.component";
+import {ChannelFinestComponent} from "./pages/Admin/AdminChannel/ChannelView/channel-finest/channel-finest.component";
 
 const routes: Routes = [
 
@@ -60,6 +62,17 @@ const routes: Routes = [
               }
             ]
           }
+          ,
+      {
+        path: 'channels',
+        component : ChannelComponent,
+        children : [
+          {
+            path: ':id',
+            component : ChannelFinestComponent,
+          }
+        ]
+      }
         ]
 
   },

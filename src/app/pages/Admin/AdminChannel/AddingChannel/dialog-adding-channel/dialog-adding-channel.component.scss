@@ -1,0 +1,68 @@
+
+.container-dialog .container {
+  background-color: var(--color-white);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.container-dialog h1 {
+  text-align: center;
+  color: var(--color-primary-dark);
+  font-weight: bold;
+  border-bottom: 1.5px solid var(--color-accent);
+  font-family: "Arial Black", sans-serif;
+}
+
+.container-dialog #logIn,
+.container-dialog #cancelButton {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+.container-dialog mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.container-dialog mat-error {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  color: #ff0033;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 14px;
+}
+
+.container-dialog .placementButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#cancelButton{
+  background-color: rgba(255, 0, 0, 0.78);
+
+  &:hover{
+    background-color: red;
+  }
+
+  &:active{
+    background-color: red;
+  }
+}
+#logIn{
+  background-color: rgba(0, 100, 0, 0.87);
+
+  &:hover{
+    background-color: green;
+  }
+  &:active{
+    background-color: darkgreen;
+  }
+}
+

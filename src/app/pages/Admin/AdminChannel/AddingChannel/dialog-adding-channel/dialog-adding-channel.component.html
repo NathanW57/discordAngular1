@@ -1,0 +1,24 @@
+
+
+<div class="container-dialog">
+  <div class="container">
+    <form [formGroup]="formulaire">
+      <h1>Ajouter un channel</h1>
+
+      <mat-form-field appearance="outline" >
+        <mat-label>Nom de groupe</mat-label>
+        <input matInput type="text" formControlName="name" (keyup)="errorComplete = false">
+        <mat-error *ngIf="formulaire.controls['name'].hasError('required')">Un nom est requis</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('minlength')">Le nom doit contenir un minimum de 2 caractères</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('maxlength')">Le nombre maximal de caractères est de 15</mat-error>
+        <mat-error *ngIf="formulaire.controls['name'].hasError('pattern')">Tu ne peux pas mettre de caractères spéciaux</mat-error>
+      </mat-form-field>
+
+
+      <div class="placementButton">
+        <button id="cancelButton" mat-raised-button color="warn" (click)="cancel()">Annuler</button>
+        <button id="logIn" type="submit" mat-raised-button color="primary" (click)="validate()">Créer</button>
+      </div>
+    </form>
+  </div>
+</div>
