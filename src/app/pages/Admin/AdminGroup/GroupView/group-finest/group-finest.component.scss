@@ -1,77 +1,106 @@
+h2, h3 {
+  color: var(--color-primary);
+  font-family: "Arial Black", sans-serif;
+}
+
+p {
+  color: var(--color-primary-dark);
+  font-size: 18px;
+}
+
 .container {
-  background-color: var(--color-white);
-  padding: 20px;
+  height: 100%;
 
 
-  .loading {
+  .table-header{
+    max-height: 100%;
+    max-width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-
-  }
-
-  .placementSecondContainer {
-    background-color: var(--color-neutral-light);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    border-radius: 5px;
-
-    .secondContainer {
-      .header-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .filter-field {
-          flex: 1;
-          max-width: 300px;
-
-          h3 {
-            font-size: 24px;
-          }
-
-          mat-form-field {
-            width: 100%;
-          }
-        }
-
-        .menu-and-add {
-          display: flex;
-
-          app-menu-group-admin {
-            margin-right: 10px;
-          }
-        }
-      }
-
-      .scroll {
-        max-height: 70vh;
-        overflow: auto;
-        overflow-x: hidden;
-        scrollbar-width: thin;
-        scrollbar-color: var(--orange) var(--grisclair);
 
 
-        mat-table {
-          width: 100%;
+    .filter-field {
+      flex-grow: 1;
+      max-width: 300px;
 
-          mat-header-cell,
-          mat-cell {
-            text-align: left;
-          }
-        }
+      mat-form-field {
 
-        mat-paginator {
-          display: flex;
-          justify-content: center;
+        mat-icon {
+          color: var(--color-accent);
+          font-size: 25px;
         }
       }
     }
   }
+  .table-header{
+    max-height: 100%;
+    padding: 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  .scroll {
+    max-height: 90vh;
+    overflow: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-accent) var(--color-neutral);
+
+
+    .globalContainer{
+      padding: 20px;
+    }
+    .colorBackGround{
+      padding: 20px;
+      border-radius: 5px;
+      background-color: var(--color-neutral-light);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+mat-header-cell {
+  text-align: justify;
+  font-family: "Arial Black", sans-serif;
+}
+
+mat-cell {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+}
+
+mat-table {
+  background-color: var(--color-white);
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 
 :host ::ng-deep .custom-spinner circle {
   stroke: var(--color-accent);
+}
+
+
+
+
+
+
+
+.menu-and-add {
+  display: flex;
+
+  app-menu-group-admin {
+    margin-right: 10px;
+  }
 }

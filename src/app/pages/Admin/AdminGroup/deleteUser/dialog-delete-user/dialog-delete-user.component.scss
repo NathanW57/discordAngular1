@@ -1,9 +1,27 @@
+
 #cancelButton{
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.78);
+
+  &:hover{
+    background-color: red;
+  }
+
+  &:active{
+    background-color: red;
+  }
 }
 #deleteButton{
-  background-color: var(--color-accent-light);
+  background-color: rgba(0, 100, 0, 0.87);
+
+  &:hover{
+    background-color: green;
+  }
+  &:active{
+    background-color: darkgreen;
+  }
 }
+
+
 
 .buttonPlacement{
   display: flex;
@@ -14,7 +32,7 @@
 }
 
 .container{
-  background-color: var(--color-primary-light);
+  background-color: var(--color-white);
   padding: 20px;
   flex: 1;
   display: flex;
@@ -22,11 +40,11 @@
   justify-content: center;
 
   h1{
-    color: white;
+    color: var(--color-primary-dark);
     text-align: center;
   }
 
   strong{
-    color: var(--color-accent-light);
+    color: red;
   }
 }
