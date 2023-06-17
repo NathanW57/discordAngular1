@@ -6,19 +6,18 @@
     <mat-label>Adresse e-mail</mat-label>
     <mat-icon matSuffix>email</mat-icon>
     <input matInput type="text" formControlName="email" (keyup)="errorLogin=false">
-    <mat-error *ngIf="formulaire.controls['email'].hasError('required')" >Email must not be empty</mat-error>
-    <mat-error *ngIf="formulaire.controls['email'].hasError('email')" >Email is required</mat-error>
+    <mat-error *ngIf="formulaire.controls['email'].hasError('required')" >L'identifiant ne peut pas être vide</mat-error>
+    <mat-error *ngIf="formulaire.controls['email'].hasError('email')" >Veuillez insérer votre identifiant</mat-error>
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Mot de passe</mat-label>
     <mat-icon matSuffix>lock</mat-icon>
     <input matInput type="password" formControlName="password" (keyup)="errorLogin=false">
-    <mat-error *ngIf="formulaire.controls['password'].hasError('required')">Password is required</mat-error>
-    <mat-error *ngIf="formulaire.controls['password'].hasError('minlength')">Password must be at least 6 characters</mat-error>
+    <mat-error *ngIf="formulaire.controls['password'].hasError('required')">Veuillez insérer votre mot de passe</mat-error>
   </mat-form-field>
 
-  <mat-error *ngIf="errorLogin">Mauvais Email/Mot de passe</mat-error>
+  <mat-error *ngIf="errorLogin">Votre identifiant ou mot de passe est incorrect</mat-error>
 
   <button id="logIn" type="submit" mat-raised-button color="primary">Connexion</button>
   <a class="colorPassword" routerLink="/forgotPassword"> Mot de passe oublié ?</a>

@@ -1,6 +1,6 @@
 
 .container-dialog .container {
-  background-color: var(--color-white);
+  background-color: var(--color-primary-light);
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .container-dialog h1 {
   text-align: center;
-  color: var(--color-primary-dark);
+  color: var(--color-white);
   font-weight: bold;
   border-bottom: 1.5px solid var(--color-accent);
   font-family: "Arial Black", sans-serif;
@@ -45,7 +45,7 @@
 }
 
 #cancelButton{
-  background-color: rgba(255, 0, 0, 0.78);
+  background-color: var(--color-primary-lightest);
 
   &:hover{
     background-color: red;
@@ -56,13 +56,13 @@
   }
 }
 #logIn{
-  background-color: rgba(0, 100, 0, 0.87);
+  background-color: var(--color-primary-lightest);
 
   &:hover{
-    background-color: green;
+    background-color: var(--color-accent);
   }
   &:active{
-    background-color: darkgreen;
+    background-color: var(--color-accent);
   }
 }
 
