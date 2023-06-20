@@ -39,7 +39,7 @@ export class GroupFinestService {
 
     return this.http.post<any>(`${environnement.serveurUrl}group/${groupId}/members/${userId}`, null, { headers }).pipe(
       tap(() => {
-        this.memberAdded.next(); // Emit an event to say that a member was added
+        this.memberAdded.next();
       })
     );
   }
@@ -51,7 +51,7 @@ export class GroupFinestService {
 
     return this.http.delete<any>(`${environnement.serveurUrl}group/${groupId}/members/${userId}`, { headers }).pipe(
       tap(() => {
-        this.memberDeleted.next(); // Emit an event to say that a member was deleted
+        this.memberDeleted.next();
       })
     );
   }

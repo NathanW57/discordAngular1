@@ -32,7 +32,6 @@ export class DialogAddingGroupComponent {
   }
 
 
-//validating the data in formulaire if it's correct or not
   validate(): void {
     if (this.formulaire.valid) {
       this.groupService.addGroup(this.formulaire.value).subscribe(

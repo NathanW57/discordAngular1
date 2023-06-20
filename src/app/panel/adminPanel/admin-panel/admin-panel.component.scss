@@ -1,10 +1,8 @@
-/*  la dimension qu'il va prendre*/
 .container {
   display: flex;
   height: 100%;
 }
 
-/* largeur du contentPanel , Couleur du background et centrer le contenu */
 .contentPanel {
   flex: 0 0 15%;
   background-color: var(--color-primary-light);
@@ -18,7 +16,6 @@
 
 }
 
-/* couleur de l'arrière plan de chaque bouton , placement , bordure et le curseur au survol*/
 .button {
   background-color: var(--color-white);
   display: flex;
@@ -31,14 +28,12 @@
   margin-bottom: 10px;
   cursor: pointer;
 
-  /* placement , et désactivation des text décoration */
   a {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
 
-    /* couleur du texte lorsque le lien a déjà été visité*/
     &:visited {
       color: var(--color-primary-dark);
     }
@@ -46,7 +41,6 @@
 
   }
 
-  /* Icon , taille , marge et animation */
   .icon {
     font-size: 24px;
     margin-right: 10px;
@@ -55,7 +49,6 @@
 
   }
 
-  /* Item Name , taille et animation */
   .itemName {
     font-size: 16px;
     font-weight:500;
@@ -67,7 +60,6 @@
   }
 }
 
-/* Content Area , l'espace qu'il va occuper ,couleur du background et l'espacement intérieur */
 .contentArea {
   flex: 1;
   background-color: var(--color-white);

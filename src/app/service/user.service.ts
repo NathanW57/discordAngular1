@@ -38,7 +38,7 @@ export class UserService {
   public userDeleteById(id: number | undefined): Observable<User> {
     return this.http.delete<User>(`${environnement.serveurUrl}user/${id}`).pipe(
       tap(() => {
-        this.userDeleted.next(); // Emit an event to say that a user was deleted
+        this.userDeleted.next();
       }
     ));
   }
@@ -52,7 +52,7 @@ export class UserService {
   public addingUser(user: User): Observable<User> {
     return this.http.post<User>(`${environnement.serveurUrl}users`, user).pipe(
       tap(() => {
-        this.userAdded.next(); // Emit an event to say that a user was added
+        this.userAdded.next();
       })
     );
   }
@@ -60,15 +60,12 @@ export class UserService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      // Une erreur côté client ou un problème de réseau. Traitez-le en conséquence.
       console.error('Une erreur est survenue :', error.error.message);
     } else {
-      // Le serveur a renvoyé un code de statut d'échec.
       console.error(
         `Le serveur a renvoyé le code d'état ${error.status}, ` +
         `corps de la réponse: ${error.error}`);
     }
-    // Retourner un observable avec un message d'erreur orienté utilisateur
     return throwError('Quelque chose a mal tourné, veuillez réessayer plus tard.');
   }
 

@@ -10,7 +10,6 @@ import {AddUserComponent} from "../add-user/add-user.component";
   styleUrls: ['./acess-adding-user.component.scss']
 })
 
-//creating a dialog box for adding a user
 export class AcessAddingUserComponent {
 
 

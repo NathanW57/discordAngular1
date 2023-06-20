@@ -97,22 +97,6 @@ export class GroupFinestComponent implements OnInit,OnDestroy {
     );
   }
 
-/*  getGroupById(groupId: number): void {
-    this.isLoading = true;
-    setTimeout(() => {
-      this.groupFinestService.getGroupById(groupId).subscribe(
-        (group: GroupFinest) => {
-          this.groupFinest = group;
-          this.dataSource.data = group.members;
-          this.isLoading = false;
-        },
-        (error) => {
-          console.log('Error occurred while fetching group:', error);
-          this.isLoading = false;
-        }
-      );
-    }, 2000); // Le délai est de 2000 millisecondes, soit 2 secondes
-  }*/
 
   onChangePage(pageEvent: PageEvent) {
     this.pageIndex = pageEvent.pageIndex;

@@ -1,5 +1,4 @@
 
-//Centrer le span , poid de la police et la famille
 span{
   display: flex;
   justify-content: center;
@@ -8,7 +7,6 @@ span{
 }
 
 
-//Centrage du texte à l'intérieur du cercle , couleur du cercle et dimension
 .icon-button {
   background-color: #FF9763;
   border-radius: 50%;
@@ -21,7 +19,6 @@ span{
   overflow: hidden;
 }
 
-//Taille du texte
 .texte {
   font-family: Roboto;
   color: #818296;

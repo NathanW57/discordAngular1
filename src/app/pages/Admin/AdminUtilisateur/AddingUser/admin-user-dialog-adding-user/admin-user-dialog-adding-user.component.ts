@@ -33,7 +33,6 @@ export class AdminUserDialogAddingUserComponent {
 }
 
 
-//validating the data in formulaire if it's correct or not
   validate(): void {
     if (this.formulaire.valid) {
       this.userService.addingUser(this.formulaire.value).subscribe(

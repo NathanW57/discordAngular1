@@ -53,11 +53,11 @@ export class AllUtilisateurComponent implements OnInit, OnDestroy {
     this.getUsers();
 
     this.userService.userAdded.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
-      this.getUsers();  // Faire une nouvelle requête HTTP après chaque ajout d'utilisateur
+      this.getUsers();
     });
 
     this.userService.userDeleted.pipe(takeUntil(this.unsubscribe$)).subscribe(() => {
-      this.getUsers();  // Faire une nouvelle requête HTTP après chaque suppression d'utilisateur
+      this.getUsers();
     });
   }
 
@@ -68,7 +68,7 @@ export class AllUtilisateurComponent implements OnInit, OnDestroy {
   }
 
 
-  //Lorsque le composants est détruit, on arrête les subscription
+
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

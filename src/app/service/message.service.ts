@@ -21,7 +21,7 @@ export class MessageService {
   saveMessage(message: OutgoingMessage): Observable<any> {
     return this.http.post<Message>(`${environnement.serveurUrl}message`, message).pipe(
       tap(() => {
-          this.messageAdded.next(); // Emit an event to say that a user was deleted
+          this.messageAdded.next();
         }
       ));
   }

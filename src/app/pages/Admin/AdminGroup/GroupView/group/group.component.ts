@@ -27,7 +27,7 @@ export class GroupComponent implements OnInit {
       this.getGroups();
     });
 
-    // Subscribe to group deleted event
+
     this.serviceGroup.deletedGroup.subscribe(() => {
       console.log('A group was deleted.');
       this.getGroups();

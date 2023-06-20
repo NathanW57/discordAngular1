@@ -18,7 +18,7 @@ export class UpdateUserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<UpdateUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public user: User // Injectez les données de l'utilisateur dans la boîte de dialogue
+    @Inject(MAT_DIALOG_DATA) public user: User
   ) {
     this.formulaire = this.formBuilder.group({
       id: [this.user.id],
@@ -44,7 +44,7 @@ export class UpdateUserComponent implements OnInit {
 
 
   ngOnInit() {
-    // Initialize formRole with the roles from the user
+
     this.formRole.setValue(this.user.role);
   }
 

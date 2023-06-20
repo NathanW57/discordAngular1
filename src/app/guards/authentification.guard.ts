@@ -12,12 +12,12 @@ export class AuthentificationGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.loginService.isUserLoggedIn()) {
       if (state.url === '/login') {
-        this.router.navigateByUrl('/home'); // Rediriger de /login à /home si l'utilisateur est déjà connecté
+        this.router.navigateByUrl('/home');
         return false;
       }
-      return true; // Utilisateur connecté, autoriser la navigation
+      return true;
     } else {
-      return true; // Utilisateur non connecté, autoriser la navigation normale vers /login
+      return true;
     }
   }
 

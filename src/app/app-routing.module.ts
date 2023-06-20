@@ -12,13 +12,6 @@ import {AdminPanelComponent} from "./panel/adminPanel/admin-panel/admin-panel.co
 import {AdminGuard} from "./guards/admin.guard";
 import {AllUtilisateurComponent} from "./pages/Admin/AdminUtilisateur/all-utilisateur/all-utilisateur.component";
 import {ChatComponent} from "./pages/Chatting/chat/chat.component";
-import {AccessChatComponent} from "./pages/Chatting/access-chat/access-chat.component";
-import {
-  DialogAddingGroupComponent
-} from "./pages/Admin/AdminGroup/AddingGroup/dialog-adding-group/dialog-adding-group.component";
-import {
-  AccessAddingGroupComponent
-} from "./pages/Admin/AdminGroup/AddingGroup/access-adding-group/access-adding-group.component";
 import {ChannelComponent} from "./pages/Admin/AdminChannel/ChannelView/channel/channel.component";
 import {ChannelFinestComponent} from "./pages/Admin/AdminChannel/ChannelView/channel-finest/channel-finest.component";
 

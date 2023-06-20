@@ -36,7 +36,7 @@ export class GroupService {
 
     return this.http.post<Group>(environnement.serveurUrl + 'groups', group).pipe(
       tap(() => {
-        this.groupAdded.next(); // Emit an event to say that a group was added
+        this.groupAdded.next();
       }
     ));
   }
@@ -45,7 +45,7 @@ export class GroupService {
 
     return this.http.delete<void>(environnement.serveurUrl + 'groups/' + id).pipe(
       tap(() => {
-        this.deletedGroup.next(); // Emit an event to say that a group was deleted
+        this.deletedGroup.next();
       }
     ));
   }
